@@ -13,7 +13,7 @@ class CreateMoodTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('mood_tag', function (Blueprint $table) {
+        Schema::create('moodtag', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tag_id');
             $table->integer('mood_id');
@@ -30,6 +30,6 @@ class CreateMoodTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mood_tag');
+        Schema::dropIfExists('moodtag');
     }
 }
