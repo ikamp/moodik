@@ -15,10 +15,7 @@ class CreateSuggestionTable extends Migration
     {
         Schema::create('suggestion', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('mood_id');
             $table->string('description');
-
-            $table->foreign('mood_id')->references('id')->on('mood');
         });
     }
 
