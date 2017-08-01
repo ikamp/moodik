@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MoodTag extends Model
 {
     protected $table = 'moodtag';
-    public $timestamps = 'false';
+    public $timestamps = false;
 
     public function moods()
     {
