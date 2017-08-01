@@ -1,17 +1,21 @@
 <?php
 
 namespace App;
-namespace App\Company;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Department extends Model
 {
     protected $table = 'department';
-    public $timestamps = 'false';
+    public $timestamps = false;
 
-    public function companies()
+    public function company()
     {
-        return $this->hasMany('Company', 'id', 'company_id');
+        return $this->belongsTo('App\Company', 'company_id', 'id');
+    }
+
+    public function employees()
+    {
+        return $this->hasMany('App\Employee', 'id', 'department_id');
     }
 }
