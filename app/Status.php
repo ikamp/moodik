@@ -1,8 +1,6 @@
 <?php
 
 namespace App;
-namespace App\Employee;
-
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +11,6 @@ class Status extends Model
 
     public function employee()
     {
-        return $this->hasOne('Employee', 'id', 'status_id');
+        return $this->hasOne('App\Employee', 'id', 'status_id');
     }
 }

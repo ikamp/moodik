@@ -1,8 +1,6 @@
 <?php
 
 namespace App;
-namespace App\Mood;
-
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +11,6 @@ class Suggestion extends Model
 
     public function suggestion()
     {
-        return $this->hasOne('Mood', 'id', 'suggestion_id');
+        return $this->hasOne('App\Mood', 'id', 'suggestion_id');
     }
 }

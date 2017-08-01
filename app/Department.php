@@ -1,9 +1,6 @@
 <?php
 
 namespace App;
-namespace App\Company;
-namespace App\Employee;
-
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,11 +11,11 @@ class Department extends Model
 
     public function company()
     {
-        return $this->belongsTo('Company', 'id', 'company_id');
+        return $this->belongsTo('App\Company', 'id', 'company_id');
     }
 
     public function employees()
     {
-        return $this->hasMany('Employee', 'id', 'department_id');
+        return $this->hasMany('App\Employee', 'id', 'department_id');
     }
 }

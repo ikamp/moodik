@@ -1,9 +1,6 @@
 <?php
 
 namespace App;
-namespace App\Department;
-namespace App\Status;
-namespace App\Mood;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,16 +10,16 @@ class Employee extends Model
 
     public function department()
     {
-        return $this->hasOne('Department', 'department_id', 'id');
+        return $this->hasOne('App\Department', 'department_id', 'id');
     }
 
     public function status()
     {
-        return $this->hasOne('Status', 'status_id', 'id');
+        return $this->hasOne('App\Status', 'status_id', 'id');
     }
 
     public function mood()
     {
-        return $this->hasOne('Mood', 'id', 'employee_id');
+        return $this->hasOne('App\Mood', 'id', 'employee_id');
     }
 }

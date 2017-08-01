@@ -1,8 +1,6 @@
 <?php
 
 namespace App;
-namespace App\Mood;
-namespace App\Tag;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,12 +11,12 @@ class MoodTag extends Model
 
     public function moods()
     {
-        return $this->hasMany('Mood', 'mood_id','id');
+        return $this->hasMany('App\Mood', 'mood_id','id');
     }
 
     public function tags()
     {
-        return $this->hasMany('Tag', 'tag_id','id');
+        return $this->hasMany('App\Tag', 'tag_id','id');
     }
 
 }
