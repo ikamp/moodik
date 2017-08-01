@@ -8,4 +8,9 @@ class Status extends Model
 {
     protected $table = 'status';
     public $timestamps = 'false';
+
+    public function employee()
+    {
+        return $this->hasOne('App\Employee', 'id', 'status_id');
+    }
 }
