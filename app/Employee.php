@@ -9,23 +9,19 @@ class Employee extends Authenticatable
 {
     protected $table = 'employee';
 
-    use Notifiable;
+    public function department()
+    {
+        return $this->hasOne('App\Department', 'department_id', 'id');
+    }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'status_id', 'name', 'last_name', 'email', 'password',
-    ];
+    public function status()
+    {
+        return $this->hasOne('App\Status', 'status_id', 'id');
+    }
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function mood()
+    {
+        return $this->hasOne('App\Mood', 'id', 'employee_id');
+    }
+
 }
