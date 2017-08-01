@@ -2,9 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Employee extends Model
+class Employee extends Authenticatable
 {
     protected $table = 'employee';
 
@@ -22,4 +23,5 @@ class Employee extends Model
     {
         return $this->hasOne('App\Mood', 'id', 'employee_id');
     }
+
 }
