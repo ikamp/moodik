@@ -11,13 +11,14 @@ class MoodTag extends Model
     protected $table = 'moodtag';
     public $timestamps = 'false';
 
-    public function moodTag()
+    public function moods()
     {
-        return $this->hasMany('Mood', 'id','mood_id');
+        return $this->hasMany('Mood', 'mood_id','id');
     }
 
-    public function tag()
+    public function tags()
     {
-        return $this->hasMany('Tag', 'id','tag_id');
+        return $this->hasMany('Tag', 'tag_id','id');
     }
+
 }
