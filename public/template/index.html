@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moodik</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row topbar">
+        <div class="col-md-2 logo"><b>mood</b>ik</div>
+        <div class="col-md-8">Boşluk </div>
+        <div class="col-md-2 name"> <p> <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                İlberk Eral
+                <span class="fa fa-bars"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">Çıkış Yap</a></li>
+            </ul>
+        </div></p>
+        </div>
+    </div>
+    <div class="row body">
+        <div class="col-md-2 sidebar">
+            <ul>
+                <li><a href="#home"><span class="fa fa-square"></span>Dashboard</a></li>
+                <li><a href="#news"><span class="fa fa-smile-o"></span>My Mood</a></li>
+                <li><a href="#contact"><span class="fa fa-users"></span>Employees</a></li>
+            </ul>
+        </div>
+        <div class="col-md-10 main">
+            <h1>Dashboard</h1>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Avarage Mood (Last 4 Weeks)</div>
+                    <div class="panel-body">
+                        <canvas id="line-chart" width="800" height="450"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Mood reviews (Current Week)</div>
+                    <div class="panel-body">
+                        <canvas id="pie-chart" width="800" height="450"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Top 5 Reason - Tags</div>
+                    <div class="panel-body">
+                        Panel content
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Reasons (Current Week)</div>
+                    <div class="panel-body">
+                        <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row footer">
+        <div class="col-md-10">this is sidebar</div>
+        <div class="col-md-2">this is body</div>
+    </div>
+</div>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/Chart.bundle.js"></script>
+<script type="text/javascript" src="js/customcharts.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>
