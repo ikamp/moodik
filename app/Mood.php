@@ -10,16 +10,16 @@ class Mood extends Model
 
     public function employee()
     {
-        return $this->hasOne('App\Employee', 'employee_id', 'id');
+        return $this->hasOne('App\Employee', 'id', 'employee_id');
     }
 
     public function suggestion()
     {
-        return $this->hasOne('App\Suggestion', 'suggestion_id', 'id');
+        return $this->hasOne('App\Suggestion', 'id', 'suggestion_id');
     }
 
     public function moodTag()
     {
-        return $this->hasOne('App\MoodTag', 'id', 'mood_id');
+        return $this->hasOne('App\MoodTag', 'mood_id', 'id');
     }
 }
