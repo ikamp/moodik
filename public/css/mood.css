@@ -1,0 +1,97 @@
+@import 'font.css';
+
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+
+body{
+    height:100%; /* force the BODY element to match the height of the HTML element */
+    background-color: #000000;
+}
+
+.popup {
+	width: 600px;
+	border-radius: 3px;
+	background-color: #ffffff;
+	text-align: center;
+	padding: 20px;
+}
+
+.popup h1 {
+	font-family: robotoBold;
+	font-size: 20px;
+}
+
+.emotion img {
+	width: 50px;
+	height: 50px;
+}
+
+
+.emotion ul {
+	list-style: none outside none;
+	margin-top:25px;
+    -webkit-padding-start: 0px;
+
+}
+
+.emotion li {
+	font-size:20px;
+	position: relative;
+	display: inline;
+	margin: 5px;
+}
+
+
+.btn-tag {
+	margin-top:10px;
+    width: : 100%;
+    color: #191818;
+    background-color: #fafafa;
+    border-color: #e6614f;
+	font-family: robotoRegular;
+	font-size:12px;
+}
+
+.btn-tag:hover, active {
+    width: : 100%;
+    color: #fafafa;
+    background-color: #e6614f;
+    border-color: #ec5844;
+	font-family: robotoRegular;
+
+}
+.form-more {
+	margin-top: 10px;
+	border-radius: 3px;
+	width: 100%;
+	height: 150px;
+	border-style:solid;
+	border-color:#e6614f;
+}
+
+.form-more:focus {
+    border-color: #e6614f;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(241, 185, 177);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(230, 97, 79);
+}
+
+
+.btn-login {
+
+    margin-top: 20px;
+    width: : 100%;
+    color: #fafafa;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+     font-family: robotoLight;
+}
+
+.btn-login:hover {
+    color: #fafafa;
+    background-color: #4cae4c;
+    border-color: #5cb85c;
+
+}
