@@ -9,7 +9,20 @@ class Employee extends Authenticatable
 {
     protected $table = 'employee';
 
-    use Notifiable;
+    public function department()
+    {
+        return $this->hasOne('App\Department', 'department_id', 'id');
+    }
+
+    public function status()
+    {
+        return $this->hasOne('App\Status', 'status_id', 'id');
+    }
+
+    public function mood()
+    {
+        return $this->hasOne('App\Mood', 'id', 'employee_id');
+    }
 
     /**
      * The attributes that are mass assignable.
