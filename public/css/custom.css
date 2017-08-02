@@ -1,81 +1,77 @@
 @import 'font.css';
 
-html{
-    min-height:100%;
-    position:relative;
-      height: 100%;
-
+html {
+    min-height: 100%;
+    position: relative;
+    height: 100%;
 }
 
-body{
-    height:100%;
+body {
+    height: 100%;
     background-color: #ededed;
-    	font-family: robotoRegular;
-
+    font-family: robotoRegular;
 }
 
 h1 {
-	margin-left:10px;
-	font-family: robotoThin;
+    margin-left: 10px;
+    font-family: robotoThin;
 }
 
 a {
-	color:#e6614f;
-	font-family: robotoRegular;
+    color: #e6614f;
+    font-family: robotoRegular;
 
 }
 
 a:hover {
-	color:#333;
-	font-family: robotoRegular;
+    color: #333;
+    font-family: robotoRegular;
 }
 
 .topbar {
-	background-color: #fafafa;
-	height: 60px;
-	color: #fff;
-	text-align: center;
-	border-bottom: 10px;
-	border-color: #000;
+    background-color: #fafafa;
+    height: 60px;
+    color: #fff;
+    text-align: center;
+    border-bottom: 10px;
+    border-color: #000;
 }
 
 .logo {
-	background-color: #e6614f;
-	height: 60px;
-	font-family: robotoLight;
-	font-size: 40px;
+    background-color: #e6614f;
+    height: 60px;
+    font-family: robotoLight;
+    font-size: 40px;
 }
 
 .name p {
-	font-family: robotoRegular;
-	font-size: 15px;
-	color: #191818;
-	margin-top: 10px;
+    font-family: robotoRegular;
+    font-size: 15px;
+    color: #191818;
+    margin-top: 10px;
 }
 
 .sidebar {
-	background-color: #333;
-	padding-top: 50px;
-    padding-bottom:0px;
-        height: 100%;
-
-
+    background-color: #333;
+    padding-top: 50px;
+    padding-bottom: 0px;
+    height: 100%;
 }
 
-.sidebar span{
-	margin: 10px;
+.sidebar span {
+    margin: 10px;
 }
 
 .sidebar ul {
     list-style-type: none;
-	float:left;    
-	padding: 0;
+    float: left;
+    padding: 0;
     width: 115%;
     margin-left: -15px;
+}
 
-} 
 .sidebar li {
-	height:100%;
+    height: 100%;
 }
 
 .sidebar a {
@@ -86,7 +82,7 @@ a:hover {
     font-family: robotoLight;
     border-left-style: solid;
     border-color: #333;
-    
+
 }
 
 .sidebar a:hover {
@@ -96,22 +92,19 @@ a:hover {
     text-decoration: none;
     font-size: 18px;
     height: 40px;
-	border-left-style: solid;
+    border-left-style: solid;
     border-color: #e6614f;
 }
 
-
 .main {
-	margin-top:20px;
-
+    margin-top: 20px;
 }
+
 .footer {
-	height: 50px;
-	color: #fafafa;
+    height: 50px;
+    color: #fafafa;
     background-color: #191818;
 }
-
-
 
 .btn-action {
     display: inline-block;
@@ -135,10 +128,9 @@ a:hover {
     border-radius: 4px;
 }
 
-
 .btn-department {
-    background-color:#333;
-    color:#fafafa;
+    background-color: #333;
+    color: #fafafa;
     font-family: robotoThin;
     display: inline-block;
     padding: 6px 12px;
@@ -161,10 +153,9 @@ a:hover {
     border-radius: 4px;
 }
 
-
 .btn-invite {
-    background-color:#e6614f;
-    color:#fafafa;
+    background-color: #e6614f;
+    color: #fafafa;
     font-family: robotoThin;
     display: inline-block;
     padding: 6px 12px;
@@ -190,41 +181,42 @@ a:hover {
 .form-control:focus {
     border-color: #e6614f;
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(241, 185, 177);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(230, 97, 79);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(241, 185, 177);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(230, 97, 79);
 }
 
 .mymoodcase {
-    padding-top:20px;
-    width:800px;
-    height:500px;
-    background-color:#fafafa;
+    padding-top: 20px;
+    width: 800px;
+    height: 500px;
+    background-color: #fafafa;
     font-family: robotoMedium;
     border-radius: 0 3px 3px 3px;
-    margin-left:30px;
+    margin-left: 30px;
 }
 
 .panel-mymood {
     text-align: center;
-    padding:0px;
+    padding: 0px;
 }
 
-.panel-mymood img{
-   width: 65px;
-   height: 65px;
-}
-.panel-mymood h1{
-   margin:5px;
+.panel-mymood img {
+    width: 65px;
+    height: 65px;
 }
 
-.panel-mymood p{
-   margin:5px;
+.panel-mymood h1 {
+    margin: 5px;
+}
+
+.panel-mymood p {
+    margin: 5px;
 }
 
 .datepickers {
     background-color: #fafafa;
     border-radius: 3px 3px 0 0;
-    padding:10px;
+    padding: 10px;
 }
 
 .panel-moodwidget {
