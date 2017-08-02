@@ -11,6 +11,7 @@ class MoodController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +19,7 @@ class MoodController extends Controller
      */
     public function index()
     {
-       //
+        //
     }
 
     /**
@@ -34,7 +35,7 @@ class MoodController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,7 +46,7 @@ class MoodController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mood  $mood
+     * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
     public function show($employeeId)
@@ -54,21 +55,18 @@ class MoodController extends Controller
             [
                 'employee'
             ]
-        )-> whereHas('employee', function($query) use ($employeeId)
-            {
-                $query->where('employee_id', $employeeId);
-            }
+        )->whereHas('employee', function ($query) use ($employeeId) {
+            $query->where('employee_id', $employeeId);
+        }
         )->get();
 
         return response()->json($moodList);
     }
 
-
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mood  $mood
+     * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
     public function edit(Mood $mood)
@@ -79,8 +77,8 @@ class MoodController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mood  $mood
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Mood $mood)
@@ -91,7 +89,7 @@ class MoodController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mood  $mood
+     * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
     public function destroy(Mood $mood)
