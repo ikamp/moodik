@@ -17,4 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('activation');
+Route::get('/verify', 'Auth\AuthController@notActive');
+Route::get('/newcode', 'Auth\AuthController@newCode');
+Route::get('/verify/{token}', 'Auth\AuthController@activateUser');
