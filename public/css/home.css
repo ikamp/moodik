@@ -1,0 +1,128 @@
+@import 'font.css';
+
+html {
+    min-height: 100%; /* make sure it is at least as tall as the viewport */
+    position: relative;
+}
+
+body {
+    height: 100%; /* force the BODY element to match the height of the HTML element */
+    background-color: #ededed;
+    background-image: url("../img/mainback.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.topbar {
+    background-color: #fafafa;
+    height: 60px;
+    color: #fff;
+    text-align: center;
+    border-bottom: 10px;
+    border-color: #000;
+    background: transparent;
+}
+
+.logo {
+    margin-left: 100px;
+    background-color: #e6614f;
+    height: 60px;
+    font-family: robotoLight;
+    font-size: 40px;
+}
+
+.menu {
+    float: right;
+    font-family: robotoRegular;
+    font-size: 15px;
+    color: #191818;
+    margin-top: 20px;
+}
+
+.menu ul {
+    list-style: none outside none;
+}
+
+.menu li {
+    position: relative;
+    display: inline;
+    margin: 5px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #fafafa;
+}
+
+.btn-black {
+    width: 100%;
+    color: #fafafa;
+    background-color: #252b31;
+    border-color: #252b31;
+    font-family: robotoRegular;
+}
+
+.btn-black:hover {
+    color: #fafafa;
+    background-color: #121619;
+    border-color: #252b31;
+}
+
+.btn-white {
+    width: 100%;
+    color: #191818;
+    background-color: #fafafa;
+    border-color: #ffffff;
+    font-family: robotoRegular;
+}
+
+.btn-white:hover {
+    width: 100%;
+    color: #fafafa;
+    background-color: #191818;
+    border-color: #000000;
+    font-family: robotoRegular;
+}
+
+.btn-pink {
+    width: 100%;
+    color: #fafafa;
+    background-color: #e6614f;
+    border-color: #ec5844;
+    font-family: robotoRegular;
+}
+
+.btn-pink:hover {
+    color: #fafafa;
+    background-color: #ec5844;
+    border-color: #ec5844;
+}
+
+.info {
+    text-align: center;
+    color: #fafafa;
+    margin-top: 100px;
+}
+
+.info h1 {
+    font-family: robotoBold;
+    font-size: 50px;
+}
+
+.info p {
+    font-family: robotoThinItalic;
+    font-size: 25px;
+}
+
+.info ul {
+    list-style: none outside none;
+    margin-top: 25px;
+    -webkit-padding-start: 0px;
+}
+
+.info li {
+    font-size: 20px;
+    position: relative;
+    display: inline;
+    margin: 5px;
+}

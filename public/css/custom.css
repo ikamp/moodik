@@ -1,0 +1,232 @@
+@import 'font.css';
+
+html{
+    min-height:100%;
+    position:relative;
+      height: 100%;
+
+}
+
+body{
+    height:100%;
+    background-color: #ededed;
+    	font-family: robotoRegular;
+
+}
+
+h1 {
+	margin-left:10px;
+	font-family: robotoThin;
+}
+
+a {
+	color:#e6614f;
+	font-family: robotoRegular;
+
+}
+
+a:hover {
+	color:#333;
+	font-family: robotoRegular;
+}
+
+.topbar {
+	background-color: #fafafa;
+	height: 60px;
+	color: #fff;
+	text-align: center;
+	border-bottom: 10px;
+	border-color: #000;
+}
+
+.logo {
+	background-color: #e6614f;
+	height: 60px;
+	font-family: robotoLight;
+	font-size: 40px;
+}
+
+.name p {
+	font-family: robotoRegular;
+	font-size: 15px;
+	color: #191818;
+	margin-top: 10px;
+}
+
+.sidebar {
+	background-color: #333;
+	padding-top: 50px;
+    padding-bottom:0px;
+        height: 100%;
+
+
+}
+
+.sidebar span{
+	margin: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+	float:left;    
+	padding: 0;
+    width: 115%;
+    margin-left: -15px;
+
+} 
+.sidebar li {
+	height:100%;
+}
+
+.sidebar a {
+    display: block;
+    height: 40px;
+    color: #999;
+    font-size: 18px;
+    font-family: robotoLight;
+    border-left-style: solid;
+    border-color: #333;
+    
+}
+
+.sidebar a:hover {
+    display: block;
+    background-color: #252525;
+    color: #e6614f;
+    text-decoration: none;
+    font-size: 18px;
+    height: 40px;
+	border-left-style: solid;
+    border-color: #e6614f;
+}
+
+
+.main {
+	margin-top:20px;
+
+}
+.footer {
+	height: 50px;
+	color: #fafafa;
+    background-color: #191818;
+}
+
+
+
+.btn-action {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+.btn-department {
+    background-color:#333;
+    color:#fafafa;
+    font-family: robotoThin;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+
+.btn-invite {
+    background-color:#e6614f;
+    color:#fafafa;
+    font-family: robotoThin;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    border-color: #e6614f;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(241, 185, 177);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(230, 97, 79);
+}
+
+.mymoodcase {
+    padding-top:20px;
+    width:800px;
+    height:500px;
+    background-color:#fafafa;
+    font-family: robotoMedium;
+    border-radius: 0 3px 3px 3px;
+    margin-left:30px;
+}
+
+.panel-mymood {
+    text-align: center;
+    padding:0px;
+}
+
+.panel-mymood img{
+   width: 65px;
+   height: 65px;
+}
+.panel-mymood h1{
+   margin:5px;
+}
+
+.panel-mymood p{
+   margin:5px;
+}
+
+.datepickers {
+    background-color: #fafafa;
+    border-radius: 3px 3px 0 0;
+    padding:10px;
+}
+
+.panel-moodwidget {
+    height: 150px;
+}
