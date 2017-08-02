@@ -11,6 +11,6 @@ class Suggestion extends Model
 
     public function mood()
     {
-        return $this->hasOne('App\Mood', 'id', 'suggestion_id');
+        return $this->hasOne('App\Mood', 'suggestion_id', 'id');
     }
 }

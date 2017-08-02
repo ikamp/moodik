@@ -11,6 +11,6 @@ class Status extends Model
 
     public function employee()
     {
-        return $this->hasOne('App\Employee', 'id', 'status_id');
+        return $this->hasOne('App\Employee', 'status_id', 'id');
     }
 }

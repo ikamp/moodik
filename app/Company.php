@@ -10,6 +10,6 @@ class Company extends Model
 
     public function departments()
     {
-        return $this->hasMany('App\Department', 'id', 'company_id');
+        return $this->hasMany('App\Department', 'company_id', 'id');
     }
 }

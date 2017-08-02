@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class MoodController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class MoodController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     /**
@@ -44,10 +48,22 @@ class MoodController extends Controller
      * @param  \App\Mood  $mood
      * @return \Illuminate\Http\Response
      */
-    public function show(Mood $mood)
+    public function show($employeeId)
     {
-        //
+        $moodList = Mood::with(
+            [
+                'employee'
+            ]
+        )-> whereHas('employee', function($query) use ($employeeId)
+            {
+                $query->where('employee_id', $employeeId);
+            }
+        )->get();
+
+        return response()->json($moodList);
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
