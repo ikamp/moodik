@@ -11,12 +11,12 @@ class MoodTag extends Model
 
     public function moods()
     {
-        return $this->hasMany('App\Mood', 'id','mood_id');
+        return $this->hasMany('App\Mood', 'id', 'mood_id');
     }
 
     public function tags()
     {
-        return $this->hasMany('App\Tag', 'id','tag_id');
+        return $this->hasMany('App\Tag', 'id', 'tag_id');
     }
 
 }

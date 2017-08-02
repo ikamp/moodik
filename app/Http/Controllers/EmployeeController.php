@@ -55,10 +55,9 @@ class EmployeeController extends Controller
             [
                 'department'
             ]
-        )->whereHas('department', function ($query) use ($companyId)
-            {
-                $query->where('company_id', $companyId);
-            }
+        )->whereHas('department', function ($query) use ($companyId) {
+            $query->where('company_id', $companyId);
+        }
         )->get();
 
         return response()->json($employeeList);
