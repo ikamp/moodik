@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Mood;
+use Illuminate\Support\Facades\DB;
 use App\Company;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
@@ -44,9 +53,23 @@ class CompanyController extends Controller
      * @param  \App\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function show(Company $company)
+    public function show($companyId)
     {
-        //
+        $companyMoodList = Mood::with(
+             [
+                 'employee',
+                 'moodTag.tags',
+                 'suggestion',
+                 'employee.department',
+                 'employee.department.company',
+             ]
+        )->whereHas('employee.department.company',function($query) use($companyId)
+            {
+               $query->where('id',$companyId);
+            }
+        )->get();
+
+        return response()->json($companyMoodList);
     }
 
     /**
