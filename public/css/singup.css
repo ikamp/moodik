@@ -1,61 +1,57 @@
 @import 'font.css';
-
 html, body {
-	height: 100%;
+    height: 100%;
 }
-
 body{
-	margin:0;
-	padding:0;
-	background-color:#D2D2D2
+    margin: 0;
+    padding: 0;
+    background-color: #D2D2D2;
 }
 .centered {
-  margin-top:100px;
-   text-align: center;
-   font-size: 0;
+    margin-top: 100px;
+    text-align: center;
+    font-size: 0;
 }
 .centered > div {
-   float: none;
-   display: inline-block;
-   text-align: left;
-   font-size: 13px;
+    float: none;
+    display: inline-block;
+    text-align: left;
+    font-size: 13px;
 }
 
 .bigbox {
-  background-color: #fafafa;
-  border-radius: 5px;
-  width: 100%;
-  height: 400px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    width: 100%;
+    height: 400px;
 }
 
 .leftside {
-  float:left;
-  width: 50%;
-  height: 100%;
+    float: left;
+    width: 50%;
+    height: 100%;
 }
 
 .leftside h1 {
-  font-family: robotoLight;
-  color: #191818;
-  font-size: 50px;
-  margin-left: 20px;
+    font-family: robotoLight;
+    color: #191818;
+    font-size: 50px;
+    margin-left: 20px;
 }
-
-
 
 .loginform {
     text-align: center;
     padding: 20px;
 }
 .loginform p{
-margin-top: 30px;
-font-family: robotoLightItalic;
+    margin-top: 30px;
+    font-family: robotoLightItalic;
 }
 
 .loginform p>a{
-margin-top: 30px;
-font-family: robotoBoldItalic;
-color:#e6614f;
+    margin-top: 30px;
+    font-family: robotoBoldItalic;
+    color: #e6614f;
 }
 .form-control:focus {
     border-color: #e6614f;
@@ -65,53 +61,52 @@ color:#e6614f;
 }
 
 .btn-login {
-
     margin-top: 20px;
-    width: : 100%;
+    width:: 100%;
     color: #fafafa;
     background-color: #e6614f;
     border-color: #e83f28;
-     font-family: robotoLight;
+    font-family: robotoLight;
 }
 
 .btn-login:hover {
     color: #fafafa;
     background-color: #191818;
     border-color: #000000;
-
 }
 
 .rightside {
-  float:right;
-  width: 50%;
-  height: 100%;
-  background-image: url("../img/singup.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 0 3px 3px 0;
+    float: right;
+    width: 50%;
+    height: 100%;
+    background-image: url("../img/singup.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 3px 3px 0;
 }
 
 .rightside h1 {
-  text-align: center;
-  font-family: robotoThin;
-  color: #fafafa;
-  font-size: 50px;
-  margin-top: 100px;
+    text-align: center;
+    font-family: robotoThin;
+    color: #fafafa;
+    font-size: 50px;
+    margin-top: 100px;
 }
 
 .rightside h1 b{
-  text-align: center;
-  font-family: robotoBold;
-  color: #fafafa;
-  font-size: 50px;
-  margin-top: 100px;
+    text-align: center;
+    font-family: robotoBold;
+    color: #fafafa;
+    font-size: 50px;
+    margin-top: 100px;
 }
+
 .rightside p {
-  margin-top:5px;
-  text-align: center;
-  font-family: robotoThinItalic;
-  color: #fafafa;
-  font-size: 25px;
+    margin-top:5px;
+    text-align: center;
+    font-family: robotoThinItalic;
+    color: #fafafa;
+    font-size: 25px;
 }
 
 .fa-envelope:before {
