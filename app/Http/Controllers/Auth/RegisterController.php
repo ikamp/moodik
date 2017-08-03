@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Employee;
+use App\EmployeeActivation;
+use App\Mail\Verification;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -47,12 +49,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+        return Validator::make(
+            $data, 
+            [
+                'name' => 'required|string|max:255',
+                'last_name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:6|confirmed',
+            ]
+        );
     }
 
     /**
@@ -63,12 +68,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Employee::create([
-            'status_id' => 1,
-            'name' => $data['name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        $employee = Employee::create(
+            [
+                'status_id' => 1,
+                'name' => $data['name'],
+                'last_name' => $data['last_name'],
+                'email' => $data['email'],
+                'password' => bcrypt($data['password']),
+            ]
+        );
+
+        $activation = EmployeeActivation::create(
+            [
+                'employee_id' => $employee->id,
+                'token' => str_random(30),
+            ]
+        );
+
+        \Mail::to($employee)->send(new \App\Mail\Verification($employee, $activation));
+
+        return $employee;
     }
 }
