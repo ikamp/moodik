@@ -34,6 +34,12 @@ class Verification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.verification', ["employee" => $this->employee, "token" => $this->activation->token]);
+        return $this->view(
+            'emails.verification', 
+            [
+                "employee" => $this->employee,
+                "token" => $this->activation->token
+            ]
+        );
     }
 }
