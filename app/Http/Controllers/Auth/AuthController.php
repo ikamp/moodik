@@ -20,7 +20,7 @@ class AuthController extends Controller
             $createdAt = new Carbon($activate->updated_at);
             $now = Carbon::now();
             //added 2 minutes to token's created time and this is our expireDate
-            $expireDate = $createdAt->addMinutes(1git );
+            $expireDate = $createdAt->addMinutes(1);
 
             if ($now->lt($expireDate)) {
                 $employee = Employee::find($activate->employee_id);
