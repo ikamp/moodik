@@ -11,15 +11,18 @@
     <div class="row topbar">
         <div class="col-md-2 logo"><b>mood</b>ik</div>
         <div class="col-md-8">Boşluk </div>
-        <div class="col-md-2 name"> <p> <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    İlberk Eral
-                    <span class="fa fa-bars"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">Çıkış Yap</a></li>
-                </ul>
-            </div></p>
+        <div class="col-md-2 name"> 
+            <p> 
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        İlberk Eral
+                        <span class="fa fa-bars"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a href="#">Çıkış Yap</a></li>
+                    </ul>
+                </div>
+            </p>
         </div>
     </div>
     <div class="row body">
