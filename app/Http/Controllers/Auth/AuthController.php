@@ -44,7 +44,7 @@ class AuthController extends Controller
     public function newCode()
     {
         $employee = Employee::find(Auth::user()->id);
-        $activation = EmployeeActivation::where('employee_id',Auth::user()->id)->first();
+        $activation = EmployeeActivation::where('employee_id', Auth::user()->id)->first();
         $activation->token = str_random(30);
         $activation->save();
         \Mail::to($employee)->send(new \App\Mail\Verification($employee, $activation));
