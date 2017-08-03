@@ -20,20 +20,20 @@ class AuthController extends Controller
             $createdAt = new Carbon($activate->updated_at);
             $now = Carbon::now();
             //added 2 minutes to token's created time and this is our expireDate
-            $expireDate = $createdAt->addMinutes(2);
+            $expireDate = $createdAt->addMinutes(1git );
 
-            if ($now->gt($expireDate)) {
-                return view('expire');
-            } else {
+            if ($now->lt($expireDate)) {
                 $employee = Employee::find($activate->employee_id);
                 $employee->activated = true;
                 $employee->save();
                 $activate->delete();
                 return redirect('/home');
+            } else {
+                return view('expire');
             }
         }
 
-        return throwException('Activation can not verified');
+        throw new \Exception('Activation can not verified');
     }
 
     public function notActive()
@@ -44,7 +44,7 @@ class AuthController extends Controller
     public function newCode()
     {
         $employee = Employee::find(Auth::user()->id);
-        $activation = EmployeeActivation::where('employee_id', Auth::user()->id)->first();
+        $activation = EmployeeActivation::where('employee_id',Auth::user()->id)->first();
         $activation->token = str_random(30);
         $activation->save();
         \Mail::to($employee)->send(new \App\Mail\Verification($employee, $activation));
