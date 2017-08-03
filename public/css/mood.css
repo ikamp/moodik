@@ -28,21 +28,18 @@ body{
 	height: 50px;
 }
 
-
 .emotion ul {
 	list-style: none outside none;
-	margin-top:25px;
+	margin-top: 25px;
     -webkit-padding-start: 0px;
-
 }
 
 .emotion li {
-	font-size:20px;
+	font-size: 20px;
 	position: relative;
 	display: inline;
 	margin: 5px;
 }
-
 
 .btn-tag {
 	margin-top:10px;
@@ -60,15 +57,15 @@ body{
     background-color: #e6614f;
     border-color: #ec5844;
 	font-family: robotoRegular;
-
 }
+
 .form-more {
 	margin-top: 10px;
 	border-radius: 3px;
 	width: 100%;
 	height: 150px;
-	border-style:solid;
-	border-color:#e6614f;
+	border-style: solid;
+	border-color: #e6614f;
 }
 
 .form-more:focus {
@@ -78,20 +75,17 @@ body{
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(230, 97, 79);
 }
 
-
 .btn-login {
-
     margin-top: 20px;
     width: : 100%;
     color: #fafafa;
     background-color: #5cb85c;
     border-color: #4cae4c;
-     font-family: robotoLight;
+    font-family: robotoLight;
 }
 
 .btn-login:hover {
     color: #fafafa;
     background-color: #4cae4c;
     border-color: #5cb85c;
-
 }
