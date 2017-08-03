@@ -11,7 +11,7 @@ class MoodController extends Controller
     {
         $this->middleware('auth');
     }
-
+  
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +19,7 @@ class MoodController extends Controller
      */
     public function index()
     {
-        //
+       //
     }
 
     /**
@@ -62,6 +62,8 @@ class MoodController extends Controller
 
         return response()->json($moodList);
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
