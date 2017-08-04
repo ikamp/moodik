@@ -14,12 +14,11 @@ angular
             })
             .when('/password/reset', {
                 templateUrl: 'template/forgot.html',
-                controller: 'ForgotPasswordController',
+                controller: 'ForgotPasswordController'
             })
             .when('/password/reset/:token', {
                 templateUrl: 'template/newpassword.html',
-                controller: 'ResetPasswordController',
-                publicAccess: true
+                controller: 'ResetPasswordController'
             })
             .when('/verify', {
                 templateUrl: 'template/verify.html',
@@ -44,7 +43,7 @@ angular
     .run(function(AuthService) {
         var url = window.location.href;
         var n = url.indexOf('password');
-        if (n == -1) {
+        if (n === -1) {
             AuthService.init();
         }
     });
