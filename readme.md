@@ -1,4 +1,4 @@
-<p align="center"><img src="sudo vim /private/etc/hosts"></p>
+<p align="center"><img src="http://ilberk.com/moodik/moodiklogo.png"></p>
 
 
 
