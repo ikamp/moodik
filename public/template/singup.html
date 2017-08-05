@@ -13,33 +13,53 @@
             <div class="col-sm-6 col-md-6">
                 <div class="bigbox">
                     <div class="leftside"><h1>Welcome!</h1>
-                        <div class="loginform">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="sizing-addon5"><span class="fa fa-user"></span></span>
-                                <input type="text" class="form-control" placeholder="First name..." aria-describedby="sizing-addon1" ng-model="register.name">
-                                <span class="input-group-addon" id="sizing-addon4"><span class="fa fa-plus"></span></span>
-                                <input type="text" class="form-control" placeholder="Last name..." aria-describedby="sizing-addon1" ng-model="register.last_name">
+                        <form name="registerForm" novalidate>
+                            <div class="registerform">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon5">
+                                        <span class="fa fa-user"></span>
+                                    </span>
+                                    <input name="name" class="form-control" placeholder="First name..."
+                                           aria-describedby="sizing-addon1" ng-model="register.name" required="required">
+                                    <span class="input-group-addon" id="sizing-addon4">
+                                        <span class="fa fa-plus"></span>
+                                    </span>
+                                    <input name="lastname" class="form-control" placeholder="Last name..."
+                                           aria-describedby="sizing-addon1" ng-model="register.last_name" required="required">
+                                </div><br>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon1">
+                                        <span class="fa fa-envelope"></span>
+                                    </span>
+                                    <input name="email" type="email" class="form-control" placeholder="Email..."
+                                           aria-describedby="sizing-addon1" ng-model="register.email" required="required">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon2">
+                                        <span class="fa fa-lock"></span>
+                                    </span>
+                                    <input name="password" type="password" class="form-control" placeholder="Password..."
+                                           aria-describedby="sizing-addon1" ng-model="register.password" required="required">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon3">
+                                        <span class="fa fa-lock"></span>
+                                    </span>
+                                    <input name="passwordCheck" type="password" class="form-control"
+                                           placeholder="Password confirmation..." aria-describedby="sizing-addon1"
+                                           ng-model="register.password_confirmation" required="required">
+                                </div>
+                                <a href="" class="btn btn-login btn-block" ng-click="postRegister(register)"
+                                   ng-disabled="registerForm.$invalid">Sign Up!</a>
                             </div>
-                            </br>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="sizing-addon1"><span class="fa fa-envelope"></span></span>
-                                <input type="emaıl" class="form-control" placeholder="Email..." aria-describedby="sizing-addon1" ng-model="register.email">
-                            </div>
-                            </br>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="sizing-addon2"><span class="fa fa-lock"></span></span>
-                                <input type="password" class="form-control" placeholder="Password..." aria-describedby="sizing-addon1" ng-model="register.password">
-                            </div>
-                            </br>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="sizing-addon3"><span class="fa fa-lock"></span></span>
-                                <input type="password" class="form-control" placeholder="Password confirmation..." aria-describedby="sizing-addon1" ng-model="register.password_confirmation">
-                            </div>
-                            <a href="" class="btn btn-login btn-block" ng-click="postRegister(register)">Sign Up!</a>
-                            <p>Moodik şifrenizi mi unuttunuz? <a href="" >Hatırlatalım!</a><p>
-                        </div>
+                        </form>
+                        <p>Moodik şifrenizi mi unuttunuz? <a href="" >Hatırlatalım!</a><p>
                     </div>
-                    <div class="rightside"><h1><b>mood</b>ik</h1></br><p>Çalışanlarınızın </br>motivasyonunu takip edin!<p></div>
+                    <div class="rightside"><h1><b>mood</b>ik</h1></br>
+                        <p>Çalışanlarınızın </br>motivasyonunu takip edin!<p>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-3 col-md-3"></div>
