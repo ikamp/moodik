@@ -29,7 +29,7 @@ class AuthController extends Controller
                 $activate->delete();
                 return redirect('/#/login');
             } else {
-                return view('/#/verify');
+                return redirect('/#/verify');
             }
         }
 
@@ -38,7 +38,7 @@ class AuthController extends Controller
 
     public function notActive()
     {
-        return view('/#/verify');
+        return redirect('/#/verify');
     }
 
     public function newCode()
@@ -48,6 +48,6 @@ class AuthController extends Controller
         $activation->token = str_random(30);
         $activation->save();
         \Mail::to($employee)->send(new \App\Mail\Verification($employee, $activation));
-        return view('/#/verify');
+        return redirect('/#/verify');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Company;
 use App\Employee;
 use App\EmployeeActivation;
 use App\Mail\Verification;
@@ -82,6 +83,12 @@ class RegisterController extends Controller
             [
                 'employee_id' => $employee->id,
                 'token' => str_random(30),
+            ]
+        );
+
+        Company::create(
+            [
+                'name' => $data['company_name'],
             ]
         );
 

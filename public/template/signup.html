@@ -16,6 +16,13 @@
                         <form name="registerForm" novalidate>
                             <div ng-messages="registerForm.$error" role="alert"  ng-messages-multiple>
                                 <div class="registerform">
+                                    <div class="input-group" ng-class="{ 'has-error': registerForm.companyName.$touched && registerForm.companyName.$invalid }">
+                                        <span class="input-group-addon" id="sizing-addon6">
+                                            <span class="fa fa-user"></span>
+                                        </span>
+                                        <input name="companyName" class="form-control" placeholder="Company Name..."
+                                               aria-describedby="sizing-addon1" ng-model="register.company_name" required="required">
+                                    </div><br>
                                     <div class="input-group" ng-class="{ 'has-error': registerForm.name.$touched && registerForm.name.$invalid }">
                                         <span class="input-group-addon" id="sizing-addon5">
                                             <span class="fa fa-user"></span>
