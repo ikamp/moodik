@@ -18,7 +18,7 @@ class CheckEmailVerify
     public function handle($request, Closure $next)
     {
         if (!Auth::user()->activated) {
-            return redirect('verify');
+            return abort(203, 'Non-Authoritative Information');
         }
 
         return $next($request);

@@ -1,11 +1,20 @@
 angular
-    .module('moodikApp', ['ngRoute'])
-    .config(function ($routeProvider, $locationProvider) {
+    .module('moodikApp', ['ngRoute', 'ngMessages'])
+    .config(function ($routeProvider, $locationProvider, $httpProvider) {
+        $httpProvider.interceptors.push('MyHttpInterceptor');
         $locationProvider.hashPrefix('');
         $routeProvider
-            .when('/home', {
-                templateUrl: 'template/index.html',
-                controller: 'HomeController'
+            .when('/login', {
+                templateUrl: 'template/login.html',
+                controller: 'LoginController'
+            })
+            .when('/register', {
+                templateUrl: 'template/signup.html',
+                controller: 'SignUpController'
+            })
+            .when('/verify', {
+                templateUrl: 'template/verify.html',
+                controller: 'VerifyController'
             })
             .when('/employee/:id', {
                 templateUrl: 'template/employee.html',
@@ -20,6 +29,9 @@ angular
                 controller: 'MyMoodController'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/login'
             });
+    })
+    .run(function(AuthService) {
+        AuthService.init();
     });

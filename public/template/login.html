@@ -1,41 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Moodik Login</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/login.css">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-</head>
-<body>
 <div class="container-fluid">
     <div class="row centered">
        <div class="col-sm-3 col-md-3"></div>
         <div class="col-sm-6 col-md-6">
             <div class="bigbox">
                 <div class="leftside"><h1>Welcome</br>back!</h1>
-                    <div class="loginform">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="sizing-addon1">
-                                <span class="fa fa-envelope"></span>
-                            </span>
-                            <input type="text" class="form-control" placeholder="Email..." aria-describedby="sizing-addon1">
+                    <form name="loginForm" novalidate>
+                        <div ng-messages="loginForm.$error" role="alert"  ng-messages-multiple>
+                            <div class="loginform">
+                                <div class="input-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+                                    <span class="input-group-addon" id="sizing-addon1">
+                                        <span class="fa fa-envelope"></span>
+                                    </span>
+                                    <input name="email" type="email" class="form-control" placeholder="Email..."
+                                           aria-describedby="sizing-addon1" ng-model="login.email" required="required">
+                                </div>
+                                <div ng-message="email">This field must be a valid email address.</div>
+                                </br>
+                                <div class="input-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+                                    <span class="input-group-addon" id="sizing-addon2">
+                                        <span class="fa fa-lock"></span>
+                                    </span>
+                                    <input name="password" type="password" class="form-control" placeholder="Password..."
+                                           aria-describedby="sizing-addon1" ng-model="login.password" required="required" ng-minlength="6">
+                                </div>
+                                <div ng-message="minlength">This field can be at least 6 characters long.</div>
+                                <a href="" class="btn btn-login btn-block" ng-click="postLogin(login)" ng-disabled="loginForm.$invalid">Sign In</a>
+                                <p>Moodik hesabınız yok mu? Hemen <a href="#/register" >üye olun!</a><p>
+                            </div>
                         </div>
-                        </br>
-                        <div class="input-group">
-                            <span class="input-group-addon" id="sizing-addon1">
-                                <span class="fa fa-lock"></span>
-                            </span>
-                            <input type="text" class="form-control" placeholder="Password..." aria-describedby="sizing-addon1">
-                        </div>
-                        <a href="#" class="btn btn-login btn-block" role="button">Sign In</a> 
-                        <p>Moodik hesabınız yok mu? Hemen <a href="#" >üye olun!</a><p>
-                    </div>
+                    </form>
                 </div>
-                <div class="rightside"><h1><b>mood</b>ik</h1></br><p>Çalışanlarınızın </br>motivasyonunu takip edin!<p></div>
+                <div class="rightside">
+                    <h1><b>mood</b>ik</h1></br>
+                    <p>Çalışanlarınızın </br>motivasyonunu takip edin!<p>
+                </div>
             </div>
         </div>
         <div class="col-sm-3 col-md-3"></div>
     </div>
 </div>
-</body>
-</html>
