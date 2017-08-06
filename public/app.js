@@ -1,5 +1,5 @@
 angular
-    .module('moodikApp', ['ngRoute'])
+    .module('moodikApp', ['ngRoute', 'ngMessages'])
     .config(function ($routeProvider, $locationProvider, $httpProvider) {
         $httpProvider.interceptors.push('MyHttpInterceptor');
         $locationProvider.hashPrefix('');
@@ -9,7 +9,7 @@ angular
                 controller: 'LoginController'
             })
             .when('/register', {
-                templateUrl: 'template/singup.html',
+                templateUrl: 'template/signup.html',
                 controller: 'SignUpController'
             })
             .when('/verify', {

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moodik Login</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/singup.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+ </head>
+<body>
+    <div class="container-fluid">
+        <div class="row centered">
+            <div class="col-sm-3 col-md-3"></div>
+            <div class="col-sm-6 col-md-6">
+                <div class="bigbox">
+                    <div class="leftside"><h1>Welcome!</h1>
+                        <form name="registerForm" novalidate>
+                            <div ng-messages="registerForm.$error" role="alert"  ng-messages-multiple>
+                                <div class="registerform">
+                                    <div class="input-group" ng-class="{ 'has-error': registerForm.name.$touched && registerForm.name.$invalid }">
+                                        <span class="input-group-addon" id="sizing-addon5">
+                                            <span class="fa fa-user"></span>
+                                        </span>
+                                        <input name="name" class="form-control" placeholder="First name..."
+                                               aria-describedby="sizing-addon1" ng-model="register.name" required="required">
+                                    </div><br>
+                                    <div class="input-group" ng-class="{ 'has-error': registerForm.lastname.$touched && registerForm.lastname.$invalid }">
+                                        <span class="input-group-addon" id="sizing-addon4">
+                                            <span class="fa fa-plus"></span>
+                                        </span>
+                                        <input name="lastname" class="form-control" placeholder="Last name..."
+                                               aria-describedby="sizing-addon1" ng-model="register.last_name" required="required">
+                                    </div><br>
+                                    <div class="input-group" ng-class="{ 'has-error': registerForm.email.$touched && registerForm.email.$invalid }">
+                                        <span class="input-group-addon" id="sizing-addon1">
+                                            <span class="fa fa-envelope"></span>
+                                        </span>
+                                        <input name="email" type="email" class="form-control" placeholder="Email..."
+                                               aria-describedby="sizing-addon1" ng-model="register.email" required="required">
+                                    </div>
+                                    <div ng-message="email">This field must be a valid email address.</div>
+                                    <br>
+                                    <div class="input-group" ng-class="{ 'has-error': registerForm.password.$touched && registerForm.password.$invalid }">
+                                        <span class="input-group-addon" id="sizing-addon2">
+                                            <span class="fa fa-lock"></span>
+                                        </span>
+                                        <input name="password" type="password" class="form-control" placeholder="Password..."
+                                               aria-describedby="sizing-addon1" ng-model="register.password" required="required" ng-minlength="6">
+                                    </div>
+                                    <br>
+                                    <div class="input-group" ng-class="{ 'has-error': registerForm.passwordCheck.$touched && registerForm.passwordCheck.$invalid }">
+                                        <span class="input-group-addon" id="sizing-addon3">
+                                            <span class="fa fa-lock"></span>
+                                        </span>
+                                        <input name="passwordCheck" type="password" class="form-control"
+                                               placeholder="Password confirmation..." aria-describedby="sizing-addon1"
+                                               ng-model="register.password_confirmation" required="required" ng-minlength="6">
+                                    </div>
+                                    <div ng-message="minlength">Password can be at least 6 characters long.</div>
+                                    <a href="" class="btn btn-login btn-block" ng-click="postRegister(register)"
+                                       ng-disabled="registerForm.$invalid">Sign Up!</a>
+                                </div>
+                            </div>
+                        </form>
+                        <p>Moodik şifrenizi mi unuttunuz? <a href="" >Hatırlatalım!</a><p>
+                    </div>
+                    <div class="rightside"><h1><b>mood</b>ik</h1></br>
+                        <p>Çalışanlarınızın </br>motivasyonunu takip edin!<p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 col-md-3"></div>
+        </div>
+    </div>
+</body>
+</html>

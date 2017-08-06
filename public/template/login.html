@@ -5,24 +5,28 @@
             <div class="bigbox">
                 <div class="leftside"><h1>Welcome</br>back!</h1>
                     <form name="loginForm" novalidate>
-                        <div class="loginform">
-                            <div class="input-group">
-                                <span class="input-group-addon" id="sizing-addon1">
-                                    <span class="fa fa-envelope"></span>
-                                </span>
-                                <input name="email" type="email" class="form-control" placeholder="Email..."
-                                       aria-describedby="sizing-addon1" ng-model="login.email" required="required">
+                        <div ng-messages="loginForm.$error" role="alert"  ng-messages-multiple>
+                            <div class="loginform">
+                                <div class="input-group" ng-class="{ 'has-error': loginForm.email.$touched && loginForm.email.$invalid }">
+                                    <span class="input-group-addon" id="sizing-addon1">
+                                        <span class="fa fa-envelope"></span>
+                                    </span>
+                                    <input name="email" type="email" class="form-control" placeholder="Email..."
+                                           aria-describedby="sizing-addon1" ng-model="login.email" required="required">
+                                </div>
+                                <div ng-message="email">This field must be a valid email address.</div>
+                                </br>
+                                <div class="input-group" ng-class="{ 'has-error': loginForm.password.$touched && loginForm.password.$invalid }">
+                                    <span class="input-group-addon" id="sizing-addon2">
+                                        <span class="fa fa-lock"></span>
+                                    </span>
+                                    <input name="password" type="password" class="form-control" placeholder="Password..."
+                                           aria-describedby="sizing-addon1" ng-model="login.password" required="required" ng-minlength="6">
+                                </div>
+                                <div ng-message="minlength">This field can be at least 6 characters long.</div>
+                                <a href="" class="btn btn-login btn-block" ng-click="postLogin(login)" ng-disabled="loginForm.$invalid">Sign In</a>
+                                <p>Moodik hesabınız yok mu? Hemen <a href="#/register" >üye olun!</a><p>
                             </div>
-                            </br>
-                            <div class="input-group">
-                                <span class="input-group-addon" id="sizing-addon2">
-                                    <span class="fa fa-lock"></span>
-                                </span>
-                                <input name="password" type="password" class="form-control" placeholder="Password..."
-                                       aria-describedby="sizing-addon1" ng-model="login.password" required="required">
-                            </div>
-                            <a href="" class="btn btn-login btn-block" ng-click="postLogin(login)" ng-disabled="loginForm.$invalid">Sign In</a>
-                            <p>Moodik hesabınız yok mu? Hemen <a href="#/register" >üye olun!</a><p>
                         </div>
                     </form>
                 </div>
