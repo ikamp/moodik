@@ -2,6 +2,6 @@
 
 
 
-## <b>Mood</b>ik Hakkında
+## <b>Mood</b>ik ABOUT
 
-Moodik, çalışanların motivasyon kontrollerini kolaylaştıran bir web uygulamasıdır.
+Moodik is a web application that makes easier to manage employees' motivation.
