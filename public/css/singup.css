@@ -5,7 +5,6 @@ html, body {
 body{
     margin: 0;
     padding: 0;
-    background-color: #D2D2D2;
 }
 .centered {
     margin-top: 100px;
@@ -26,29 +25,29 @@ body{
     height: 400px;
 }
 
-.leftside {
+.leftsidesu {
     float: left;
     width: 50%;
     height: 100%;
 }
 
-.leftside h1 {
+.leftsidesu h1 {
     font-family: robotoLight;
     color: #191818;
     font-size: 50px;
     margin-left: 20px;
 }
 
-.loginform {
+.registerform {
     text-align: center;
     padding: 20px;
 }
-.loginform p{
+.registerform p{
     margin-top: 30px;
     font-family: robotoLightItalic;
 }
 
-.loginform p>a{
+.registerform p>a{
     margin-top: 30px;
     font-family: robotoBoldItalic;
     color: #e6614f;
@@ -75,7 +74,7 @@ body{
     border-color: #000000;
 }
 
-.rightside {
+.rightsidesu {
     float: right;
     width: 50%;
     height: 100%;
@@ -85,7 +84,7 @@ body{
     border-radius: 0 3px 3px 0;
 }
 
-.rightside h1 {
+.rightsidesu h1 {
     text-align: center;
     font-family: robotoThin;
     color: #fafafa;
@@ -93,7 +92,7 @@ body{
     margin-top: 100px;
 }
 
-.rightside h1 b{
+.rightsidesu h1 b{
     text-align: center;
     font-family: robotoBold;
     color: #fafafa;
@@ -101,7 +100,7 @@ body{
     margin-top: 100px;
 }
 
-.rightside p {
+.rightsidesu p {
     margin-top:5px;
     text-align: center;
     font-family: robotoThinItalic;
