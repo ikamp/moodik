@@ -40,14 +40,14 @@
         <div class="col-md-2">this is body</div>
     </div>
 </div>
-<script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-route.min.js"></script>
 
-<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<!--<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/Chart.min.js"></script>
 <script type="text/javascript" src="js/Chart.bundle.js"></script>
-<script type="text/javascript" src="js/customcharts.js"></script>-->
+<script type="text/javascript" src="js/customcharts.js"></script>
 <script type="text/javascript" src="app.js"></script>
 <script type="text/javascript" src="services/dataService.js"></script>
 <script type="text/javascript" src="controllers/EmployeeController.js"></script>
