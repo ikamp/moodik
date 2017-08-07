@@ -1,17 +1,20 @@
 @import 'font.css';
+@import 'login.css';
+@import 'singup.css';
+@import 'mood.css';
+
 
 html{
     min-height:100%;
     position:relative;
-      height: 100%;
+    height: 100%;
 
 }
 
 body{
     height:100%;
     background-color: #ededed;
-    	font-family: robotoRegular;
-
+    font-family: robotoRegular;
 }
 
 h1 {
@@ -57,7 +60,7 @@ a:hover {
 	background-color: #333;
 	padding-top: 50px;
     padding-bottom:0px;
-        height: 100%;
+    height: 700px;
 
 
 }
@@ -100,7 +103,6 @@ a:hover {
     border-color: #e6614f;
 }
 
-
 .main {
 	margin-top:20px;
 
@@ -110,8 +112,6 @@ a:hover {
 	color: #fafafa;
     background-color: #191818;
 }
-
-
 
 .btn-action {
     display: inline-block;
