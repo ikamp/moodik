@@ -4,7 +4,9 @@ angular.module('moodikApp')
 function authService($http, $location, $rootScope) {
     return {
         init: init,
-        logout: logout
+        logout: logout,
+        forgotPassword: forgotPassword,
+        resetPassword: resetPassword
     }
 
     function init() {
@@ -28,5 +30,23 @@ function authService($http, $location, $rootScope) {
         }, function (error) {
             errorCallback && errorCallback(error);
         });
+    }
+
+    function forgotPassword(data, callback, errorCallback) {
+        $http.post('/password/email', angular.toJson(data))
+            .then(function(response) {
+                callback(response.data);
+            }, function(error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+    function resetPassword(data, callback, errorCallback) {
+        $http.post('/password/reset', angular.toJson(data))
+            .then(function(response) {
+                callback(response.data);
+            }, function(error) {
+                errorCallback && errorCallback(error);
+            });
     }
 }
