@@ -10,7 +10,7 @@ Route::group(['middleware' => ['auth', 'activation']], function() use($apiRoute)
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/verify', 'Auth\AuthController@notActive');
 });
-Route::get('/init', 'HomeController@init')->middleware('auth');;
+Route::get('/init', 'HomeController@init')->middleware('auth');
 Route::get('/verify/{token}', 'Auth\AuthController@activateUser');
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/newcode', 'Auth\AuthController@newCode');

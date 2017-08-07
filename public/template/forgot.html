@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row centered">
+        <div class="col-sm-3 col-md-3"></div>
+        <div class="col-sm-6 col-md-6">
+            <div class="bigbox">
+                <div class="leftside">
+                    <h1>Forget <br>Password!</h1>
+                    {{messages}}
+                    <form name="forgetForm" novalidate>
+                        <div ng-messages="forgetForm.$error" role="alert">
+                            <div class="forgetForm">
+                                <div class="input-group" ng-class="{ 'has-error': forgetForm.email.$touched && forgetForm.email.$invalid }">
+                                    <span class="input-group-addon" id="sizing-addon1">
+                                        <span class="fa fa-envelope"></span>
+                                    </span>
+                                    <input type="email" name="email" class="form-control" placeholder="Email address..."
+                                           aria-describedby="sizing-addon1" ng-model="forget.email">
+                                </div>
+                                <div ng-message="email">This field must be a valid email address.</div>
+                                <a href="" class="btn btn-login btn-block" role="button" ng-click="postForget(forget)">Hatırlat!</a>
+                                <p>Moodik, şifrenizi hatırladınız mı? <a href="#/login" >Giriş Yap</a><p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="rightside">
+                    <h1><b>mood</b>ik</h1></br>
+                    <p>Çalışanlarınızın </br>motivasyonunu takip edin!<p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3"></div>
+    </div>
+</div>

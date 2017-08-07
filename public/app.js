@@ -12,6 +12,15 @@ angular
                 templateUrl: 'template/signup.html',
                 controller: 'SignUpController'
             })
+            .when('/password/reset', {
+                templateUrl: 'template/forgot.html',
+                controller: 'ForgotPasswordController',
+            })
+            .when('/password/reset/:token', {
+                templateUrl: 'template/newpassword.html',
+                controller: 'ResetPasswordController',
+                publicAccess: true
+            })
             .when('/verify', {
                 templateUrl: 'template/verify.html',
                 controller: 'VerifyController'
@@ -33,5 +42,9 @@ angular
             });
     })
     .run(function(AuthService) {
-        AuthService.init();
+        var url = window.location.href;
+        var n = url.indexOf('password');
+        if (n == -1) {
+            AuthService.init();
+        }
     });
