@@ -43,8 +43,8 @@ $factory->define(App\Suggestion::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Mood::class, function () {
     return [
-        'employee_id' => $employeeId = rand(1, 25),
-        'suggestion_id' => $suggestionId = rand(1, 25),
+        'employee_id' => $employeeId = rand(1, 10),
+        'suggestion_id' => $suggestionId = rand(1, 70),
         'point' => rand(1, 5),
         'week' => rand(1, 12),
         'remember_token' => str_random(10),
@@ -59,7 +59,9 @@ $factory->define(App\Tag::class, function (Faker\Generator $faker) {
 
 $factory->define(App\MoodTag::class, function () {
     return [
-        'tag_id' => $tagId = rand(1, 25),
-        'mood_id' => $moodId = rand(1, 25),
+        'tag_id' => $tagId = rand(1, 7),
+        'mood_id' => $moodId = rand(1, 70),
     ];
 });
+
+
