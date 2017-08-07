@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Employee extends Authenticatable
 {
     protected $table = 'employee';
+    use notifiable;
 
     public function department()
     {

@@ -1,11 +1,29 @@
 angular
-    .module('moodikApp', ['ngRoute'])
-    .config(function ($routeProvider, $locationProvider) {
+    .module('moodikApp', ['ngRoute', 'ngMessages'])
+    .config(function ($routeProvider, $locationProvider, $httpProvider) {
+        $httpProvider.interceptors.push('MyHttpInterceptor');
         $locationProvider.hashPrefix('');
         $routeProvider
-            .when('/home', {
-                templateUrl: 'template/index.html',
-                controller: 'HomeController'
+            .when('/login', {
+                templateUrl: 'template/login.html',
+                controller: 'LoginController'
+            })
+            .when('/register', {
+                templateUrl: 'template/signup.html',
+                controller: 'SignUpController'
+            })
+            .when('/password/reset', {
+                templateUrl: 'template/forgot.html',
+                controller: 'ForgotPasswordController',
+            })
+            .when('/password/reset/:token', {
+                templateUrl: 'template/newpassword.html',
+                controller: 'ResetPasswordController',
+                publicAccess: true
+            })
+            .when('/verify', {
+                templateUrl: 'template/verify.html',
+                controller: 'VerifyController'
             })
             .when('/employee/:id', {
                 templateUrl: 'template/employee.html',
@@ -20,6 +38,13 @@ angular
                 controller: 'MyMoodController'
             })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/login'
             });
+    })
+    .run(function(AuthService) {
+        var url = window.location.href;
+        var n = url.indexOf('password');
+        if (n == -1) {
+            AuthService.init();
+        }
     });

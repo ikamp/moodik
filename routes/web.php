@@ -2,19 +2,15 @@
 
 $apiRoute = "/api/";
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::group(['middleware' => 'auth'], function() use($apiRoute) {
+Auth::routes();
+Route::group(['middleware' => ['auth', 'activation']], function() use($apiRoute) {
     Route::resource("$apiRoute/employee", 'EmployeeController');
     Route::resource("$apiRoute/mood", 'MoodController');
     Route::resource("$apiRoute/company", 'CompanyController');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/verify', 'Auth\AuthController@notActive');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('activation');
-Route::get('/verify', 'Auth\AuthController@notActive');
-Route::get('/newcode', 'Auth\AuthController@newCode');
+Route::get('/init', 'HomeController@init')->middleware('auth');
 Route::get('/verify/{token}', 'Auth\AuthController@activateUser');
+Route::get('/logout','Auth\LoginController@logout');
+Route::get('/newcode', 'Auth\AuthController@newCode');
