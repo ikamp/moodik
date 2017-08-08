@@ -16,6 +16,7 @@ class CreateEmployeeTable extends Migration
         Schema::create('employee', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('department_id')->nullable();
+            $table->integer('company_id');
             $table->integer('status_id');
             $table->string('name');
             $table->string('last_name');
@@ -26,6 +27,7 @@ class CreateEmployeeTable extends Migration
             $table->timestamps();
 
             $table->foreign('department_id')->references('id')->on('department');
+            $table->foreign('company_id')->references('id')->on('company');
             $table->foreign('status_id')->references('id')->on('status');
         });
     }
