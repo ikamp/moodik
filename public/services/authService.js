@@ -26,6 +26,7 @@ function authService($http, $location, $rootScope) {
             method: 'GET',
             url: '/logout'
         }).then(function (response) {
+            $rootScope.user = null;
             $location.path('/login');
         }, function (error) {
             errorCallback && errorCallback(error);

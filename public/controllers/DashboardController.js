@@ -1,7 +1,7 @@
 angular.module('moodikApp')
     .controller('DashboardController', dashboardController);
 
-function dashboardController($scope, DataService, $routeParams) {
+function dashboardController($scope, DataService, $routeParams, $rootScope) {
     $rootScope.flag = true;
     $scope.companyId = $routeParams.id;
     $scope.moodTagGroup = [];
