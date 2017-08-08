@@ -1,17 +1,17 @@
 @import 'font.css';
+@import 'login.css';
+@import 'signup.css';
 
 html{
     min-height:100%;
     position:relative;
-      height: 100%;
-
+    height: 100%;
 }
 
 body{
     height:100%;
     background-color: #ededed;
-    	font-family: robotoRegular;
-
+    font-family: robotoRegular;
 }
 
 h1 {
@@ -22,7 +22,6 @@ h1 {
 a {
 	color:#e6614f;
 	font-family: robotoRegular;
-
 }
 
 a:hover {
@@ -57,9 +56,7 @@ a:hover {
 	background-color: #333;
 	padding-top: 50px;
     padding-bottom:0px;
-        height: 100vh;
-
-
+    height: 100vh;
 }
 
 .sidebar span{
@@ -68,7 +65,7 @@ a:hover {
 
 .sidebar ul {
     list-style-type: none;
-	float:left;    
+	float: left;
 	padding: 0;
     width: 115%;
     margin-left: -15px;
@@ -111,8 +108,6 @@ a:hover {
     background-color: #191818;
 }
 
-
-
 .btn-action {
     display: inline-block;
     padding: 6px 12px;
@@ -134,7 +129,6 @@ a:hover {
     border: 1px solid transparent;
     border-radius: 4px;
 }
-
 
 .btn-department {
     background-color:#333;
@@ -160,7 +154,6 @@ a:hover {
     border: 1px solid transparent;
     border-radius: 4px;
 }
-
 
 .btn-invite {
     background-color:#e6614f;
@@ -195,18 +188,18 @@ a:hover {
 }
 
 .mymoodcase {
-    padding-top:20px;
-    width:800px;
-    height:500px;
-    background-color:#fafafa;
+    padding-top: 20px;
+    width: 800px;
+    height: 500px;
+    background-color: #fafafa;
     font-family: robotoMedium;
     border-radius: 0 3px 3px 3px;
-    margin-left:30px;
+    margin-left: 30px;
 }
 
 .panel-mymood {
     text-align: center;
-    padding:0px;
+    padding: 0px;
 }
 
 .panel-mymood img{
@@ -214,17 +207,17 @@ a:hover {
    height: 65px;
 }
 .panel-mymood h1{
-   margin:5px;
+   margin: 5px;
 }
 
 .panel-mymood p{
-   margin:5px;
+   margin: 5px;
 }
 
 .datepickers {
     background-color: #fafafa;
     border-radius: 3px 3px 0 0;
-    padding:10px;
+    padding: 10px;
 }
 
 .panel-moodwidget {
