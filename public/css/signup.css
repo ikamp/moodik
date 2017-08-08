@@ -52,6 +52,7 @@ body{
     font-family: robotoBoldItalic;
     color: #e6614f;
 }
+
 .form-control:focus {
     border-color: #e6614f;
     outline: 0;
