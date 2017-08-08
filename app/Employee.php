@@ -10,6 +10,11 @@ class Employee extends Authenticatable
     protected $table = 'employee';
     use notifiable;
 
+    public function company()
+    {
+        return $this->hasOne('App\Company', 'id', 'company_id');
+    }
+
     public function department()
     {
         return $this->hasOne('App\Department', 'id', 'department_id');
