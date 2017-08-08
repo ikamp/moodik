@@ -56,17 +56,12 @@ class CompanyController extends Controller
     public function show($companyId)
     {
         $companyMoodList = Mood::with(
-            [
-                'employee',
-                'moodTag.tags',
-                'suggestion',
-                'employee.department',
-                'employee.department.company',
-            ]
+            'suggestion',
+            'moodTag.tags',
+            'employee.department.company'
         )->whereHas('employee.department.company', function ($query) use ($companyId) {
             $query->where('id', $companyId);
-        }
-        )->get();
+        })->get();
 
         return response()->json($companyMoodList);
     }

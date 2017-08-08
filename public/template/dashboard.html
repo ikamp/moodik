@@ -5,6 +5,9 @@
             <div class="panel-heading">Avarage Mood (Last 4 Weeks)</div>
             <div class="panel-body">
                 <canvas id="line-chart" width="800" height="450"></canvas>
+                <div ng-repeat="moodAverage in getEmployeeMoodList">
+                    mood-point:{{moodAverage.point}}
+                </div>
             </div>
         </div>
     </div>
@@ -19,16 +22,16 @@
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">Top 5 Reason - Tags</div>
-            <div class="panel-body">
-                Panel content
+            <div class="panel-body" ng-repeat="tag in moodTagGroup">
+              # <label>{{tag.name}}</label> ({{tag.length}})
             </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">Reasons (Current Week)</div>
-            <div class="panel-body">
-                <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">Reasons (Current Week)</div>
+                <div class="panel-body">
+                    <canvas id="bar-chart-horizontal" width="800" height="450"></canvas>
+                </div>
             </div>
         </div>
     </div>

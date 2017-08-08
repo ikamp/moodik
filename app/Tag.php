@@ -11,6 +11,6 @@ class Tag extends Model
 
     public function moodTag()
     {
-        return $this->hasOne('App\Tag', 'id', 'tag_id');
+        return $this->hasOne('App\Tag', 'tag_id', 'id');
     }
 }
