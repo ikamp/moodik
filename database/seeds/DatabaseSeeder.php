@@ -14,10 +14,11 @@ class DatabaseSeeder extends Seeder
         factory(App\Company::class, 5)->create();
         factory(App\Department::class, 25)->create();
         factory(App\Status::class, 2)->create();
-        factory(App\Employee::class, 25)->create();
-        factory(App\Suggestion::class, 25)->create();
-        factory(App\Mood::class, 25)->create();
-        factory(App\Tag::class, 25)->create();
-        factory(App\MoodTag::class, 25)->create();
+        factory(App\Employee::class, 70)->create();
+        factory(App\Suggestion::class, 70)->create();
+        factory(App\Mood::class, 70)->create();
+        factory(App\Tag::class, 7)->create();
+        factory(App\MoodTag::class, 70)->create();
+
     }
 }

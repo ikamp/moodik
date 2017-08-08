@@ -6,7 +6,9 @@ function dataService($http) {
         getEmployeeList: getEmployeeList,
         postLoginInfo: postLoginInfo,
         postRegisterInfo: postRegisterInfo,
-        sendCode: sendCode
+        sendCode: sendCode,
+        getEmployeeMoodList: getEmployeeMoodList,
+        getMyMoodList: getMyMoodList
     }
 
     function getEmployeeList(companyId, callback, errorCallback) {
@@ -38,10 +40,32 @@ function dataService($http) {
             });
     }
 
-    function sendCode(callback, errorCalllback) {
+    function sendCode(callback, errorCallback) {
         $http({
             method: 'GET',
             url: '/newcode'
+        }).then(function (response) {
+            callback && callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
+
+    function getEmployeeMoodList(companyId, callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/company/' + companyId
+        }).then(function (response) {
+            callback && callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
+
+    function getMyMoodList(employeeId, callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/mood/' + employeeId
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
