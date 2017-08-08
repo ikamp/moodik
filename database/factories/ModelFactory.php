@@ -4,8 +4,6 @@
 $factory->define(App\Company::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->company,
-        'telephone' => $faker->phoneNumber,
-        'address' => $faker->address
     ];
 });
 
