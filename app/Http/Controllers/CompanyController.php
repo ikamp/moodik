@@ -66,8 +66,6 @@ class CompanyController extends Controller
         }
         )->get();
 
-          // return response()->json($companyMoodList);
-
         $json = json_decode($companyMoodList, true);
         for ($i = 1; $i < count($json); $i++) {
             for ($j = 0; $j < sizeof($json[$i]['mood_tag']['tags']); $j++) {
