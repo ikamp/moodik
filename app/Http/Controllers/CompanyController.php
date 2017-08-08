@@ -60,11 +60,9 @@ class CompanyController extends Controller
             'suggestion',
             'moodTag.tags',
             'employee.department.company'
-
         )->whereHas('employee.department.company', function ($query) use ($companyId) {
             $query->where('id', $companyId);
-        }
-        )->get();
+        })->get();
 
         $json = json_decode($companyMoodList, true);
         for ($i = 1; $i < count($json); $i++) {
