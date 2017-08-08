@@ -11,7 +11,7 @@ class MoodController extends Controller
     {
         $this->middleware('auth');
     }
-  
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +19,7 @@ class MoodController extends Controller
      */
     public function index()
     {
-       //
+
     }
 
     /**
@@ -51,18 +51,35 @@ class MoodController extends Controller
      */
     public function show($employeeId)
     {
-        $moodList = Mood::with(
-            [
-                'employee'
-            ]
-        )->whereHas('employee', function ($query) use ($employeeId) {
-            $query->where('employee_id', $employeeId);
+        $totalPoint = 0;
+        $mood = [];
+
+        $moodList = Mood::with('employee')
+            ->whereHas('employee', function ($query) use ($employeeId) {
+                $query->where('employee_id', $employeeId);
+            })
+            ->get();
+
+        $json = json_decode($moodList, true);
+
+        for ($i = 0; $i < count($json); $i++)
+            $totalPoint = $totalPoint + $json[$i]['point'];
+        $averageMood = round($totalPoint / count($json));
+        for ($i = 0; $i < count($json); $i++) {
+            $mood[] = array(
+                'employee_id' => $json[0]['employee_id'],
+                'average' => $averageMood,
+                'point' => $json[$i]['point'],
+                'date' => array(
+                    'week' => $json[$i]['week'],
+                    'createdAt' => $json[$i]['created_at'],
+                    'updatedAt' => $json[$i]['updated_at'],
+                )
+            );
         }
-        )->get();
 
-        return response()->json($moodList);
+        return response()->json($mood);
     }
-
 
 
     /**
@@ -71,7 +88,8 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mood $mood)
+    public
+    function edit(Mood $mood)
     {
         //
     }
@@ -83,7 +101,8 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mood $mood)
+    public
+    function update(Request $request, Mood $mood)
     {
         //
     }
@@ -94,7 +113,8 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mood $mood)
+    public
+    function destroy(Mood $mood)
     {
         //
     }

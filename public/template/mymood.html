@@ -6,11 +6,13 @@
                 <div class="controls form-inline datepickers">
                     <div class="input-group">
                         <span class="input-group-addon" id="basic-addon1"><span class="fa fa-calendar-o"></span></span>
-                        <input data-provide="datepicker" type="text" class="form-control" placeholder="Başlangıç tarihi..." aria-describedby="basic-addon1">
+                        <input data-provide="datepicker" type="text" class="form-control"
+                               placeholder="Başlangıç tarihi..." aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group">
-                        <span class="input-group-addon" id="basic-addon1"><span class="fa fa-calendar"></span></span>
-                        <input data-provide="datepicker" type="text" class="form-control" placeholder="Bitiş tarihi..." aria-describedby="basic-addon1">
+                        <span class="input-group-addon" id="basic-addon2"><span class="fa fa-calendar"></span></span>
+                        <input data-provide="datepicker" type="text" class="form-control" placeholder="Bitiş tarihi..."
+                               aria-describedby="basic-addon1">
                     </div>
                 </div>
             </div>
@@ -22,7 +24,11 @@
         <div class="panel panel-default panel-mymood">
             <div class="panel-heading">Total</div>
             <div class="panel-body panel-moodwidget">
-                <h1>1</h1><br><p>given moods</p>
+                <h1 ng-init="totalMoods">
+                    {{totalMoods}}
+                </h1>
+                <br>
+                <p>given moods</p>
             </div>
         </div>
     </div>
@@ -30,18 +36,25 @@
         <div class="panel panel-default panel-mymood">
             <div class="panel-heading">Avarage Mood</div>
             <div class="panel-body panel-moodwidget">
-                <h1><img src="img/emotion/5.png"></h1>
-                <p>Happy</p>
+                <h1><img src="img/emotion/{{getMyMoodAverage.average}}.png"></h1>
+                <p>
+                    {{mapMood[getMyMoodAverage.average-1]}}
+                </p>
             </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">Distribution</div>
-            <div class="panel-body panel-moodwidget">
-                Panel content
+            <div class="panel-body panel-moodwidget" style="line-height: 100px;">
+                <div class="chart-container" style="height: 200px; width: 300px;">
+                    <canvas id="doughnut-distribution"></canvas>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-10">
+        <canvas id="line-chart-graph"></canvas>
     </div>
 </div>
 </div>

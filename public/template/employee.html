@@ -1,8 +1,8 @@
 <div class="col-md-10 main">
     <h1>Employees</h1>
     <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#allemp">All Employees</a></li>
-        <li><a data-toggle="tab" href="#invemp">Invite Employee</a></li>
+        <li class="active"><a data-toggle="tab" target="_self" href="#allemp">All Employees</a></li>
+        <li><a data-toggle="tab" target="_self" href="#invemp">Invite Employee</a></li>
     </ul>
     <div class="tab-content">
         <div id="allemp" class="tab-pane fade in active">
@@ -11,12 +11,15 @@
                 <div class="control-group">
                     <div class="controls form-inline">
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1"><span class="fa fa-user-circle"></span></span>
-                            <input type="text" class="form-control" placeholder="Name / Email" aria-describedby="basic-addon1">
+                            <span class="input-group-addon" id="basic-addon1"><span
+                                    class="fa fa-user-circle"></span></span>
+                            <input type="text" class="form-control" placeholder="Name / Email"
+                                   aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon2"><span class="fa fa-users"></span></span>
-                            <input type="text" class="form-control" placeholder="Department" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Department"
+                                   aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon3"><span class="fa fa-diamond"></span></span>
@@ -36,34 +39,25 @@
                         <th>Action</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody ng-repeat="employee in getEmployeeList track by $index">
                     <tr>
-                        <td>1</td>
-                        <td>İlberk</td>
-                        <td>ilberkeral@gmail.com</td>
-                        <td>HR</td>
-                        <td><div class="dropdown">
-                            <button class="btn-action btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Actions
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                            </ul>
-                        </div></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>İlberk</td>
-                        <td>ilberkeral@gmail.com</td>
-                        <td>HR</td>
-                        <td><div class="dropdown">
-                            <button class="btn-action btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">Actions
-                                <span class="caret"></span></button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                            </ul>
-                        </div></td>
+                        <td>{{$index+1}}</td>
+                        <td>{{employee.name}} {{employee.last_name}}</td>
+                        <td>{{employee.email}}</td>
+                        <td>{{employee.department.name}}</td>
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn-action btn-default dropdown-toggle" type="button" id="menu1"
+                                        data-toggle="dropdown">Actions
+                                    <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                    <li role="presentation"><a role="menuitem" target="_self" tabindex="-1">Delete</a>
+                                    </li>
+                                    <li role="presentation"><a role="menuitem" target="_self" tabindex="-1">Edit</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -75,16 +69,20 @@
                 <div class="control-group">
                     <div class="controls form-inline">
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon4"><span class="fa fa-envelope"></span></span>
+                            <span class="input-group-addon" id="basic-addon4"><span
+                                    class="fa fa-envelope"></span></span>
                             <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon5"><span class="fa fa-user-circle"></span></span>
-                            <input type="text" class="form-control" placeholder="Employee" aria-describedby="basic-addon1">
+                            <span class="input-group-addon" id="basic-addon5"><span
+                                    class="fa fa-user-circle"></span></span>
+                            <input type="text" class="form-control" placeholder="Employee"
+                                   aria-describedby="basic-addon1">
                         </div>
                         <div class="btn-group">
                             <button type="button" class="btn btn-department">Department</button>
-                            <button type="button" class="btn btn-department dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-department dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
@@ -92,10 +90,11 @@
                                 <li><a href="#">Finans</a></li>
                                 <li><a href="#">Marketing</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#">Add Department  <span class="fa fa-plus"></span></a></li>
+                                <li><a href="#">Add Department <span class="fa fa-plus"></span></a></li>
                             </ul>
                         </div>
-                        <button class="btn-invite btn-default" type="button"><span class="fa fa-plus"></span> Invite Employee
+                        <button class="btn-invite btn-default" type="button"><span class="fa fa-plus"></span> Invite
+                            Employee
                         </button>
                     </div>
                 </div>
