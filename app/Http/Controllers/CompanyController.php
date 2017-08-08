@@ -55,6 +55,7 @@ class CompanyController extends Controller
      */
     public function show($companyId)
     {
+        $companyMood = [];
         $companyMoodList = Mood::with(
             'suggestion',
             'moodTag.tags',
@@ -63,7 +64,20 @@ class CompanyController extends Controller
             $query->where('id', $companyId);
         })->get();
 
-        return response()->json($companyMoodList);
+        $json = json_decode($companyMoodList, true);
+        for ($i = 1; $i < count($json); $i++) {
+            for ($j = 0; $j < sizeof($json[$i]['mood_tag']['tags']); $j++) {
+                $companyMood[] = array(
+                    'id' => $json[$i]['id'],
+                    'suggestion' => $json[$i]['suggestion'],
+                    'point' => $json[$i]['point'],
+                    'week' => $json[$i]['week'],
+                    'moodTag' => $json[$i]['mood_tag']['tags'][$j]['name']
+                );
+            }
+        }
+        return response()->json($companyMood);
+
     }
 
     /**
