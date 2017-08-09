@@ -69,9 +69,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $company = Company::create(
+            [
+                'name' => $data['company_name'],
+            ]
+        );
+
         $employee = Employee::create(
             [
                 'status_id' => 1,
+                'company_id' => $company->id,
                 'name' => $data['name'],
                 'last_name' => $data['last_name'],
                 'email' => $data['email'],
@@ -83,12 +91,6 @@ class RegisterController extends Controller
             [
                 'employee_id' => $employee->id,
                 'token' => str_random(30),
-            ]
-        );
-
-        Company::create(
-            [
-                'name' => $data['company_name'],
             ]
         );
 

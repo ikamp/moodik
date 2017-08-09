@@ -23,6 +23,7 @@ $factory->define(App\Status::class, function (Faker\Generator $faker) {
 $factory->define(App\Employee::class, function (Faker\Generator $faker) {
     static $password;
     return [
+        'company_id' => rand(1, 5),
         'department_id' => rand(1, 25),
         'status_id' => rand(1, 2),
         'name' => $faker->name,
