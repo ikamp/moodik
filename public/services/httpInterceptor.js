@@ -7,7 +7,6 @@ function myHttpInterceptor($q, $timeout, $rootScope, $location) {
 
         'response': function(response) {
             if (response.status == 203) {
-                console.log(response);
                 $location.path('verify');
             }
             return response;

@@ -7,13 +7,12 @@ function loginController($scope, $location, $rootScope, DataService, AuthService
     $scope.login =  {};
 
     if ($rootScope.user != null) {
-        $location.path('/dashboard');
+        $location.path('/mymood');
     }
 
     $scope.postLogin = function (data) {
         DataService.postLoginInfo(data, function (response) {
             AuthService.init();
-            $location.path('/dashboard');
         })
     }
 }
