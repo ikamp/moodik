@@ -24,15 +24,15 @@ angular
                 templateUrl: 'template/verify.html',
                 controller: 'VerifyController'
             })
-            .when('/employee/:id', {
+            .when('/employee', {
                 templateUrl: 'template/employee.html',
                 controller: 'EmployeeController'
             })
-            .when('/dashboard/:id', {
+            .when('/dashboard', {
                 templateUrl: 'template/dashboard.html',
                 controller: 'DashboardController'
             })
-            .when('/mymood/:id', {
+            .when('/mymood', {
                 templateUrl: 'template/mymood.html',
                 controller: 'MyMoodController'
             })
