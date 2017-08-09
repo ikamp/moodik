@@ -1,9 +1,9 @@
 angular.module('moodikApp')
     .controller('MyMoodController', myMoodController);
 
-function myMoodController($scope, DataService, $rootScope) {
-
+function myMoodController($scope, $timeout, DataService, $rootScope) {
     $scope.employeeId = $rootScope.user.id;
+
     $scope.mapMood = [
         'Very sad',
         'Sad',
