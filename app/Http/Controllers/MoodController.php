@@ -57,14 +57,18 @@ class MoodController extends Controller
         $moodList = Mood::with('employee')
             ->whereHas('employee', function ($query) use ($employeeId) {
                 $query->where('employee_id', $employeeId);
-            })
-            ->get();
+            })->get();
 
         $json = json_decode($moodList, true);
 
-        for ($i = 0; $i < count($json); $i++)
+        for ($i = 0; $i < count($json); $i++) {
             $totalPoint = $totalPoint + $json[$i]['point'];
-        $averageMood = round($totalPoint / count($json));
+        }
+
+        if ($totalPoint != 0) {
+            $averageMood = round($totalPoint / count($json));
+        }
+
         for ($i = 0; $i < count($json); $i++) {
             $mood[] = array(
                 'employee_id' => $json[0]['employee_id'],
