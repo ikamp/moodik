@@ -3,12 +3,26 @@ angular.module('moodikApp')
 
 function dataService($http) {
     return {
+        getDepartmentList: getDepartmentList,
         getEmployeeList: getEmployeeList,
         postLoginInfo: postLoginInfo,
         postRegisterInfo: postRegisterInfo,
         sendCode: sendCode,
         getEmployeeMoodList: getEmployeeMoodList,
-        getMyMoodList: getMyMoodList
+        getMyMoodList: getMyMoodList,
+        postInvitedEmployee: postInvitedEmployee,
+        saveInvitedEmployee: saveInvitedEmployee
+    }
+
+    function getDepartmentList(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/employee/'
+        }).then(function (response) {
+            callback && callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
     }
 
     function getEmployeeList(companyId, callback, errorCallback) {
@@ -24,8 +38,8 @@ function dataService($http) {
 
     function postLoginInfo(data, callback, errorCallback) {
         $http.post('/login', angular.toJson(data))
-            .then(function(response) {
-                callback(response.data);
+            .then(function() {
+                callback();
             }, function(error) {
                 errorCallback && errorCallback(error);
             });
@@ -33,10 +47,28 @@ function dataService($http) {
 
     function postRegisterInfo(data, callback, errorCallback) {
         $http.post('/register', angular.toJson(data))
+            .then(function() {
+                callback();
+            }, function(error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+    function saveInvitedEmployee (employee, callback, errorCallbak) {
+        $http.post('/invite', angular.toJson(employee))
+            .then(function() {
+                callback();
+            }, function(error) {
+                errorCallbak && errorCallbak(error);
+            });
+    }
+
+    function postInvitedEmployee (employee, callback, errorCallbak) {
+        $http.post('/api/employee', angular.toJson(employee))
             .then(function(response) {
                 callback(response.data);
             }, function(error) {
-                errorCallback && errorCallback(error);
+                errorCallbak && errorCallbak(error);
             });
     }
 

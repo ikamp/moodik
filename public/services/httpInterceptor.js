@@ -14,6 +14,11 @@ function myHttpInterceptor($q, $timeout, $rootScope, $location) {
         'responseError': function(rejection) {
             if (rejection.status == 401) {
                 $location.path('login');
+            } else if (rejection.status == 406) {
+                $rootScope.message = "Your passwords not matched.";
+                $timeout(function () {
+                    $rootScope.message = false;
+                }, 4000);
             } else if (rejection.status == 403) {
                 $rootScope.message = "You don't have right permission to visit that page.";
                 $timeout(function () {

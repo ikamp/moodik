@@ -68,38 +68,36 @@
         </div>
         <div id="invemp" class="tab-pane fade">
             <h3>Invite Employee</h3>
-            <form class="form-horizontal">
+            <form class="form-horizontal" name="inviteEmployee" novalidate>
                 <div class="control-group">
                     <div class="controls form-inline">
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon4">
                                 <span class="fa fa-envelope"></span>
                             </span>
-                            <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon1">
+                            <input type="email" class="form-control" placeholder="Email" aria-describedby="basic-addon1"
+                                   ng-model="add.employeeEmail">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon5">
                                 <span class="fa fa-user-circle"></span>
                             </span>
-                            <input type="text" class="form-control" placeholder="Employee"
-                                   aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Employee Name"
+                                   aria-describedby="basic-addon1" ng-model="add.employeeName">
                         </div>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-department">Department</button>
-                            <button type="button" class="btn btn-department dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">İnsan Kaynakları</a></li>
-                                <li><a href="#">Finans</a></li>
-                                <li><a href="#">Marketing</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Add Department <span class="fa fa-plus"></span></a></li>
-                            </ul>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon6">
+                                <span class="fa fa-user-circle"></span>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Employee Lastname"
+                                   aria-describedby="basic-addon1" ng-model="add.employeeLastname">
                         </div>
-                        <button class="btn-invite btn-default" type="button"><span class="fa fa-plus"></span> Invite
-                            Employee
+                        <select class="form-control" ng-model="add.employeeDepartment" ng-options="department.id as department.name for department in
+                            departments">
+                        </select>
+                        <button class="btn-invite btn-default" type="button" ng-click="invite(add)">
+                            <span class="fa fa-plus"></span>
+                            Invite Employee
                         </button>
                     </div>
                 </div>

@@ -16,3 +16,4 @@ Route::get('/init', 'HomeController@init')->middleware('auth');
 Route::get('/verify/{token}', 'Auth\AuthController@activateUser');
 Route::get('/logout','Auth\LoginController@logout');
 Route::get('/newcode', 'Auth\AuthController@newCode');
+Route::post('/invite', 'Auth\AuthController@invitedUser');

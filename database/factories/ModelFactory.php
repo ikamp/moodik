@@ -29,7 +29,7 @@ $factory->define(App\Employee::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'last_name' => $faker->word,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = bcrypt('123456'),
         'remember_token' => str_random(10),
     ];
 });
@@ -62,5 +62,3 @@ $factory->define(App\MoodTag::class, function () {
         'mood_id' => $moodId = rand(1, 70),
     ];
 });
-
-
