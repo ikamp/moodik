@@ -1,12 +1,15 @@
 angular.module('moodikApp')
     .controller('EmployeeController', employeeController);
 
-function employeeController ($scope, DataService, $rootScope) {
+function employeeController ($scope, $timeout, DataService, $rootScope) {
 
     $scope.companyId = $rootScope.user.company_id;
     $scope.invite = function (employee) {
         DataService.postInvitedEmployee(employee, function (response) {
-
+            $rootScope.message = "Employee invited.";
+            $timeout(function () {
+                $rootScope.message = false;
+            }, 4000);
         })
     };
 
