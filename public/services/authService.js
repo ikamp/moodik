@@ -16,7 +16,7 @@ function authService($http, $location, $rootScope) {
         }).then(function (response) {
             $rootScope.user = response.data;
             $rootScope.$broadcast('currentUser');
-            $location.path('/dashboard');
+            $location.path('/mymood');
         }, function () {
             $location.path('/login');
         });
