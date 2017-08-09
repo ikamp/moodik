@@ -13,6 +13,7 @@ function loginController($scope, $location, $rootScope, DataService, AuthService
     $scope.postLogin = function (data) {
         DataService.postLoginInfo(data, function (response) {
             AuthService.init();
+            $location.path('/mymood');
         })
     }
 }
