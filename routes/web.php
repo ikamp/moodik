@@ -4,9 +4,11 @@ $apiRoute = "/api/";
 
 Auth::routes();
 Route::group(['middleware' => ['auth', 'activation']], function() use($apiRoute) {
-    Route::resource("$apiRoute/employee", 'EmployeeController');
+    Route::group(['middleware' => ['manager']], function() use($apiRoute) {
+        Route::resource("$apiRoute/employee", 'EmployeeController');
+        Route::resource("$apiRoute/company", 'CompanyController');
+    });
     Route::resource("$apiRoute/mood", 'MoodController');
-    Route::resource("$apiRoute/company", 'CompanyController');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/verify', 'Auth\AuthController@notActive');
 });
