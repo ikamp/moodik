@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row centered">
+        <div class="col-sm-3 col-md-3">
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <div class="bigbox">
+                <div class="leftsideli"><h1>New Password</h1>
+                    <form name="invitedEmployee">
+                        <div ng-messages="invitedEmployee.$error" role="alert"  ng-messages-multiple>
+                            <div class="invitedEmployee">
+                                <div class="input-group" ng-class="{ 'has-error': invitedEmployee.email.$touched &&
+                                    invitedEmployee.email.$invalid }">
+                                            <span class="input-group-addon" id="sizing-addon1">
+                                                <span class="fa fa-envelope"></span>
+                                            </span>
+                                    <input name="email" type="email" class="form-control" placeholder="Email..."
+                                           aria-describedby="sizing-addon1" ng-model="invitedUser.email" required="required">
+                                </div>
+                                <div ng-message="email">This field must be a valid email address.</div>
+                                <br>
+                                <div class="input-group" ng-class="{ 'has-error': invitedEmployee.password.$touched &&
+                                    invitedEmployee.password.$invalid }">
+                                            <span class="input-group-addon" id="sizing-addon2">
+                                                <span class="fa fa-lock"></span>
+                                            </span>
+                                    <input name="password" type="password" class="form-control" placeholder="Password..."
+                                           aria-describedby="sizing-addon1" ng-model="invitedUser.password"
+                                           required="required" ng-minlength="6">
+                                </div>
+                                <br>
+                                <div class="input-group" ng-class="{ 'has-error': invitedEmployee.passwordCheck.$touched &&
+                                    invitedEmployee.passwordCheck.$invalid }">
+                                            <span class="input-group-addon" id="sizing-addon3">
+                                                <span class="fa fa-lock"></span>
+                                            </span>
+                                    <input name="passwordCheck" type="password" class="form-control"
+                                           placeholder="Password confirmation..." aria-describedby="sizing-addon1"
+                                           ng-model="invitedUser.password_confirmation" required="required" ng-minlength="6">
+                                </div>
+                                <div ng-message="minlength">Password can be at least 6 characters long.</div>
+                                <div class="col-xs-8">
+                                    <div class="alert alert-danger" role="alert" ng-show="message">
+                                        {{message}}
+                                    </div>
+                                </div>
+                                <a href="" class="btn btn-login btn-block" ng-click="postNewUser(invitedUser)"
+                                   ng-disabled="invitedEmployee.$invalid">Log In!</a>
+                                Go back to <a href="#/login">Login</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="rightsideli">
+                    <h1><b>mood</b>ik</h1>
+                    </br>
+                    <p>Çalışanlarınızın </br>motivasyonunu takip edin!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+        </div>
+    </div>
+</div>

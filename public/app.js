@@ -36,6 +36,10 @@ angular
                 templateUrl: 'template/mymood.html',
                 controller: 'MyMoodController'
             })
+            .when('/password/new/:token', {
+                templateUrl: 'template/invite.html',
+                controller: 'InviteController'
+            })
             .otherwise({
                 redirectTo: '/login'
             });

@@ -126,31 +126,6 @@ a:hover {
     border-radius: 4px;
 }
 
-.btn-department {
-    background-color:#333;
-    color:#fafafa;
-    font-family: robotoThin;
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-}
-
 .btn-invite {
     background-color:#e6614f;
     color:#fafafa;

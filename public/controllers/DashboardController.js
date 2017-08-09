@@ -8,8 +8,8 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
         $scope.companyId = $rootScope.user.company_id;
         getDashboardData();
     });
-    $scope.moodTagGroup = [];
 
+    $scope.moodTagGroup = [];
     function  getDashboardData() {
         DataService.getEmployeeMoodList($scope.companyId, function (response) {
             var popularTags = [];

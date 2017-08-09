@@ -21,7 +21,7 @@ class CreateEmployeeTable extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->boolean('activated')->default(false);
             $table->rememberToken();
             $table->timestamps();

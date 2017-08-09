@@ -32,6 +32,11 @@
                 <li><a href="#/employee"><span class="fa fa-users"></span>Employees</a></li>
             </ul>
         </div>
+        <div class="col-xs-8">
+            <div class="alert alert-danger" role="alert" ng-show="message">
+                {{message}}
+            </div>
+        </div>
         <div ng-view></div>
     </div>
     <div class="row footer" id="footer" ng-show='flag'>
@@ -56,6 +61,7 @@
 <script type="text/javascript" src="services/authService.js"></script>
 <script type="text/javascript" src="controllers/BaseController.js"></script>
 <script type="text/javascript" src="controllers/EmployeeController.js"></script>
+<script type="text/javascript" src="controllers/InviteController.js"></script>
 <script type="text/javascript" src="controllers/SignUpController.js"></script>
 <script type="text/javascript" src="controllers/LoginController.js"></script>
 <script type="text/javascript" src="controllers/ForgotPasswordController.js"></script>

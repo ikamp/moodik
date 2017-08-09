@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Employee;
+use App\EmployeeActivation;
+use App\Mail\Invitation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -19,7 +23,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        return Department::where('company_id', '=', Auth::user()->company_id)->get();
     }
 
     /**
@@ -29,7 +33,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -40,7 +44,29 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $employee = Employee::create(
+            [
+                'status_id' => 2,
+                'company_id' => Auth::user()->company_id,
+                'department_id' => $request->employeeDepartment,
+                'name' => $request->employeeName,
+                'last_name' => $request->employeeLastname,
+                'email' => $request->employeeEmail,
+            ]
+        );
+
+        $activation = EmployeeActivation::create(
+            [
+                'employee_id' => $employee->id,
+                'token' => str_random(30),
+            ]
+        );
+
+        $manager = Auth::user();
+
+        \Mail::to($employee)->send(new \App\Mail\Invitation($manager, $employee, $activation));
+
+        return $employee;
     }
 
     /**
