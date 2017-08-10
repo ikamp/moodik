@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
 use App\Mood;
 use Illuminate\Support\Facades\DB;
 use App\Company;
@@ -98,9 +99,11 @@ class CompanyController extends Controller
      * @param  \App\Company $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request)
     {
-        //
+        $employee = Employee::where('id', $request->employeeId)->first();
+        $employee->department_id = $request->departmentId;
+        $employee->save();
     }
 
     /**

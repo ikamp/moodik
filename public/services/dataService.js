@@ -12,7 +12,8 @@ function dataService($http) {
         postInvitedEmployee: postInvitedEmployee,
         sendCode: sendCode,
         saveInvitedEmployee: saveInvitedEmployee,
-        removeEmployee: removeEmployee
+        removeEmployee: removeEmployee,
+        updateDepartment: updateDepartment
     }
 
     function getDepartmentList(callback, errorCallback) {
@@ -113,5 +114,14 @@ function dataService($http) {
         }, function (error) {
             errorCallback && errorCallback(error);
         });
+    }
+
+    function updateDepartment(employee, callback, errorCallbak) {
+        $http.put('/api/company/' + employee.employeeId, angular.toJson(employee))
+            .then(function(response) {
+                callback(response.data);
+            }, function(error) {
+                errorCallbak && errorCallbak(error);
+            });
     }
 }
