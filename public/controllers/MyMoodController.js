@@ -12,7 +12,6 @@ function myMoodController ($scope, DataService, $rootScope) {
     ];
 
     $scope.$on('currentUser', function (event, args) {
-        $scope.companyId = $rootScope.user.company_id;
         getMyMoodData();
     });
 
@@ -75,5 +74,9 @@ function myMoodController ($scope, DataService, $rootScope) {
                 });
             });
         }
+    }
+
+    if ($rootScope.user && $rootScope.user.id) {
+        getMyMoodData();
     }
 }

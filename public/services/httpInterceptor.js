@@ -7,13 +7,13 @@ function myHttpInterceptor($q, $timeout, $rootScope, $location) {
 
         'response': function(response) {
             if (response.status == 203) {
-                $location.path('verify');
+                $location.path('/verify');
             }
             return response;
         },
         'responseError': function(rejection) {
             if (rejection.status == 401) {
-                $location.path('login');
+                $location.path('/login');
             } else if (rejection.status == 406) {
                 $rootScope.message = "Your passwords not matched.";
                 $timeout(function () {
@@ -24,7 +24,7 @@ function myHttpInterceptor($q, $timeout, $rootScope, $location) {
                 $timeout(function () {
                     $rootScope.message = false;
                 }, 4000);
-                $location.path('mymood');
+                $location.path('/mymood');
             }
             return $q.reject(rejection);
         }
