@@ -2,30 +2,34 @@
     <div class="row centered">
         <div class="col-sm-3 col-md-3"></div>
         <div class="col-sm-6 col-md-6">
-            <div class="bigbox">
+            <div class="bigboxli">
                 <div class="leftsideli">
                     <h1>Forget <br>Password!</h1>
-                    {{messages}}
-                    <form name="forgetForm" novalidate>
-                        <div ng-messages="forgetForm.$error" role="alert">
-                            <div class="forgetForm">
-                                <div class="input-group" ng-class="{ 'has-error': forgetForm.email.$touched && forgetForm.email.$invalid }">
+                    <div class="registerform">
+                        {{messages}}
+                        <form name="forgetForm" novalidate>
+                            <div ng-message="email" class="alert alert-danger notification">
+                                This field must be a valid email address.
+                            </div>
+                            <div ng-messages="forgetForm.$error" role="alert">
+                                <div class="forgetForm">
+                                    <div class="input-group" ng-class="{ 'has-error': forgetForm.email.$touched && forgetForm.email.$invalid }">
                                     <span class="input-group-addon" id="sizing-addon1">
                                         <span class="fa fa-envelope"></span>
                                     </span>
-                                    <input type="email" name="email" class="form-control" placeholder="Email address..."
-                                           aria-describedby="sizing-addon1" ng-model="forget.email">
+                                        <input type="email" name="email" class="form-control" placeholder="Email address..."
+                                               aria-describedby="sizing-addon1" ng-model="forget.email">
+                                    </div>
+                                    <a href="" class="btn btn-login btn-block" role="button" ng-click="postForget(forget)">New Password!</a>
+                                    <p>Remember your password? <a href="#/login" >Login</a><p>
                                 </div>
-                                <div ng-message="email">This field must be a valid email address.</div>
-                                <a href="" class="btn btn-login btn-block" role="button" ng-click="postForget(forget)">Hatırlat!</a>
-                                <p>Moodik, şifrenizi hatırladınız mı? <a href="#/login" >Giriş Yap</a><p>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
                 <div class="rightsideli">
                     <h1><b>mood</b>ik</h1></br>
-                    <p>Çalışanlarınızın </br>motivasyonunu takip edin!<p>
+                    <p>Keep track your employees </br>motivation! </p>
                 </div>
             </div>
         </div>

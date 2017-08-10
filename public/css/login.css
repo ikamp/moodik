@@ -23,11 +23,11 @@ body {
     font-size: 13px;
 }
 
-.bigbox {
+.bigboxli {
     background-color: #fafafa;
     border-radius: 5px;
     width: 100%;
-    height: 400px;
+    height: 420px;
 }
 
 .leftsideli {
@@ -105,7 +105,7 @@ body {
     color: #fafafa;
     background-color: #e6614f;
     border-color: #e83f28;
-    font-family: robotoLight;
+    font-family: robotoRegular;
 }
 
 .btn-login:hover {
@@ -118,4 +118,3 @@ body {
     content: "\f023";
     font-size: 20px;
 }
-

@@ -2,9 +2,11 @@
     <h1>Dashboard</h1>
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-default">
+            <div class="panel panel-default selectweekbox">
                 <div class="col-md-3 center-block">
-                    <h5><span class="label label-warning">Select Week:</span></h5>
+                    <h5>
+                        <span class="label label-warning selectweeklabel">Select Week:</span>
+                    </h5>
                 </div>
                 <div class="col-md-9">
                     <select class="form-control" ng-model="weekTake"
@@ -55,7 +57,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Tag Popularities (Last 4 Weeks)</div>
                 <div class="panel-body">
-                    <canvas id="line-chart" width="800" height="450"></canvas>
+                    <canvas id="line-chart" width="800" height="300"></canvas>
                 </div>
             </div>
         </div>

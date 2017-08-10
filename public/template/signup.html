@@ -2,14 +2,20 @@
     <div class="row centered">
         <div class="col-sm-3 col-md-3"></div>
         <div class="col-sm-6 col-md-6">
-            <div class="bigbox">
+            <div class="bigboxsu">
                 <div class="leftsidesu"><h1>Welcome!</h1>
                     <form name="registerForm" novalidate>
                         <div ng-messages="registerForm.$error" role="alert"  ng-messages-multiple>
                             <div class="registerform">
+                                <div ng-message="minlength" class="alert alert-danger notification">
+                                    Password can be at least 6 characters long.
+                                </div>
+                                <div ng-message="email" class="alert alert-danger notification">
+                                    This field must be a valid email address.
+                                </div>
                                 <div class="input-group" ng-class="{ 'has-error': registerForm.companyName.$touched && registerForm.companyName.$invalid }">
                                         <span class="input-group-addon" id="sizing-addon6">
-                                            <span class="fa fa-user"></span>
+                                            <span class="fa fa-building"></span>
                                         </span>
                                     <input name="companyName" class="form-control" placeholder="Company Name..."
                                            aria-describedby="sizing-addon1" ng-model="register.company_name" required="required">
@@ -35,7 +41,6 @@
                                     <input name="email" type="email" class="form-control" placeholder="Email..."
                                            aria-describedby="sizing-addon1" ng-model="register.email" required="required">
                                 </div>
-                                <div ng-message="email">This field must be a valid email address.</div>
                                 <br>
                                 <div class="input-group" ng-class="{ 'has-error': registerForm.password.$touched && registerForm.password.$invalid }">
                                         <span class="input-group-addon" id="sizing-addon2">
@@ -53,13 +58,12 @@
                                            placeholder="Password confirmation..." aria-describedby="sizing-addon1"
                                            ng-model="register.password_confirmation" required="required" ng-minlength="6">
                                 </div>
-                                <div ng-message="minlength">Password can be at least 6 characters long.</div>
                                 <a href="" class="btn btn-login btn-block" ng-click="postRegister(register)"
                                    ng-disabled="registerForm.$invalid">Sign Up!</a>
+                                <p>You have already an account ? <a href="#/login" >Login</a><p>
                             </div>
                         </div>
                     </form>
-                    <p>You have already an account ? <a href="#/login" >Login</a><p>
                 </div>
                 <div class="rightsidesu"><h1><b>mood</b>ik</h1></br>
                     <p>Keep track your employees motivation.<p>
