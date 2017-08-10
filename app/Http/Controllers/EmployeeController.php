@@ -85,6 +85,8 @@ class EmployeeController extends Controller
             'status_id',
             '!=',
             '3'
+        )->with(
+            'department'
         )->get();
         return response()->json($employeeList);
     }
