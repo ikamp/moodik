@@ -85,8 +85,9 @@ class EmployeeController extends Controller
             'status_id',
             '!=',
             '3'
-        )
-            ->get();
+        )->with(
+            'department'
+        )->get();
         return response()->json($employeeList);
     }
 
@@ -108,9 +109,11 @@ class EmployeeController extends Controller
      * @param  \App\Employee $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request)
     {
-        //
+        $employee = Employee::where('id', $request->id)->first();
+        $employee->status_id = 3;
+        $employee->save();
     }
 
     /**
