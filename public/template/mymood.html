@@ -1,32 +1,6 @@
 <div class="col-md-10 main">
     <h1>My Mood</h1>
     <div class="row">
-        <div class="col-md-6">
-            <form class="form-horizontal">
-                <div class="control-group">
-                    <div class="controls form-inline datepickers">
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1">
-                                <span class="fa fa-calendar-o"></span>
-                            </span>
-                            <input data-provide="datepicker" type="text" class="form-control"
-                                   placeholder="First date" aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon2">
-                                <span class="fa fa-calendar"></span>
-                            </span>
-                            <input data-provide="datepicker" type="text" class="form-control"
-                                   placeholder="Last Date"
-                                   aria-describedby="basic-addon1">
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<div class="row">
     <div class="col-md-6 mymoodcase">
         <div class="col-md-3">
             <div class="panel panel-default panel-mymood">
@@ -54,7 +28,7 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Distribution</div>
-                <div class="panel-body panel-moodwidget" style="line-height: 100px;">
+                <div class="panel-body panel-moodwidget" style="line-height: 300px;">
                     <div class="chart-container" style="height: 200px; width: 300px;">
                         <canvas id="doughnut-distribution"></canvas>
                     </div>
@@ -62,7 +36,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="panel-default mymoodlinechart">
                     <canvas id="line-chart-graph"></canvas>
                 </div>

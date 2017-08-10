@@ -49,7 +49,7 @@ function myMoodController ($scope, DataService, $rootScope) {
                         ],
                         datasets: [{
                             label: "Mood percentages",
-                            backgroundColor: ["#BE0202", "#D44D4D", "#D0630A", "#ACD00A", "#2EA702"],
+                            backgroundColor: ["#13425C", "#10B292", "#F0B922", "#E3611B", "#DE5B49"],
                             data: [$scope.size[1], $scope.size[2], $scope.size[3], $scope.size[4], $scope.size[5]]
                         }]
                     },

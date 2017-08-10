@@ -65,7 +65,7 @@ body{
     color: #fafafa;
     background-color: #e6614f;
     border-color: #e83f28;
-    font-family: robotoLight;
+    font-family: robotoRegular  ;
 }
 
 .btn-login:hover {
