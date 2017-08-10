@@ -18,4 +18,8 @@ class Department extends Model
     {
         return $this->hasMany('App\Employee', 'id', 'department_id');
     }
+
+    protected $fillable = [
+        'company_id', 'name',
+    ];
 }

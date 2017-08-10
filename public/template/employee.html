@@ -53,13 +53,24 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                         <li role="presentation">
-                                            <a role="menuitem" target="_self" tabindex="-1">Delete</a>
+                                            <a role="menuitem" target="_self" tabindex="-1" ng-click="remove(employee)">
+                                                Remove from Company
+                                            </a>
                                         </li>
                                         <li role="presentation">
-                                            <a role="menuitem" target="_self" tabindex="-1">Edit</a>
+                                            <a role="menuitem" target="_self" tabindex="-1"
+                                               ng-click="changedEmployee(employee); dep = !dep">
+                                                Change Department
+                                            </a>
                                         </li>
                                     </ul>
                                 </div>
+                            </td>
+                            <td ng-show="dep">
+                                <select class="form-control" ng-model="newDepartment"
+                                        ng-change="changedDepartment(newDepartment)"
+                                        ng-options="department.name for department in departments">
+                                </select>
                             </td>
                         </tr>
                     </tbody>
@@ -92,8 +103,8 @@
                             <input type="text" class="form-control" placeholder="Employee Lastname"
                                    aria-describedby="basic-addon1" ng-model="add.employeeLastname">
                         </div>
-                        <select class="form-control" ng-model="add.employeeDepartment" ng-options="department.id as department.name for department in
-                            departments">
+                        <select class="form-control" ng-model="add.employeeDepartment"
+                                ng-options="department.id as department.name for department in departments">
                         </select>
                         <button class="btn-invite btn-default" type="button" ng-click="invite(add)">
                             <span class="fa fa-plus"></span>
@@ -101,7 +112,30 @@
                         </button>
                     </div>
                 </div>
-            </form>
+            </form><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-warning" type="button" ng-click="dep = !dep">
+                        <span class="fa fa-plus"></span>
+                        Create New Department
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <div ng-hide="dep">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="department.name" placeholder="New Department Name"
+                                           aria-describedby="basic-addon1">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="newDepartment(department)">Save</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

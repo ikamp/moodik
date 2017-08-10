@@ -5,13 +5,16 @@ function dataService($http) {
     return {
         getDepartmentList: getDepartmentList,
         getEmployeeList: getEmployeeList,
+        getMyMoodList: getMyMoodList,
+        getEmployeeMoodList: getEmployeeMoodList,
         postLoginInfo: postLoginInfo,
         postRegisterInfo: postRegisterInfo,
-        sendCode: sendCode,
-        getEmployeeMoodList: getEmployeeMoodList,
-        getMyMoodList: getMyMoodList,
         postInvitedEmployee: postInvitedEmployee,
-        saveInvitedEmployee: saveInvitedEmployee
+        sendCode: sendCode,
+        saveInvitedEmployee: saveInvitedEmployee,
+        removeEmployee: removeEmployee,
+        updateDepartment: updateDepartment,
+        newDepartment: newDepartment
     }
 
     function getDepartmentList(callback, errorCallback) {
@@ -72,6 +75,15 @@ function dataService($http) {
             });
     }
 
+    function removeEmployee (employee, callback, errorCallbak) {
+        $http.put('/api/employee/' + employee.id, angular.toJson(employee))
+            .then(function(response) {
+                callback(response.data);
+            }, function(error) {
+                errorCallbak && errorCallbak(error);
+            });
+    }
+
     function sendCode(callback, errorCallback) {
         $http({
             method: 'GET',
@@ -103,5 +115,23 @@ function dataService($http) {
         }, function (error) {
             errorCallback && errorCallback(error);
         });
+    }
+
+    function updateDepartment(employee, callback, errorCallbak) {
+        $http.put('/api/company/' + employee.employeeId, angular.toJson(employee))
+            .then(function(response) {
+                callback(response.data);
+            }, function(error) {
+                errorCallbak && errorCallbak(error);
+            });
+    }
+
+    function newDepartment(department, callback, errorCallbak) {
+        $http.post('/api/company', angular.toJson(department))
+            .then(function (response) {
+                callback(response.data);
+            }, function (error) {
+                errorCallbak && errorCallbak(error);
+            });
     }
 }
