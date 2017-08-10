@@ -1,7 +1,7 @@
 angular.module('moodikApp')
     .controller('MyMoodController', myMoodController);
 
-function myMoodController ($scope, DataService, $rootScope) {
+function myMoodController($scope, DataService, $rootScope) {
     $rootScope.flag = true;
     $scope.mapMood = [
         'Very sad',
@@ -15,7 +15,7 @@ function myMoodController ($scope, DataService, $rootScope) {
         getMyMoodData();
     });
 
-    function getMyMoodData () {
+    function getMyMoodData() {
         if ($rootScope.user && $rootScope.user.id) {
             $scope.employeeId = $rootScope.user && $rootScope.user.id;
             DataService.getMyMoodList($scope.employeeId, function (response) {
@@ -25,7 +25,25 @@ function myMoodController ($scope, DataService, $rootScope) {
                 $scope.getMyMoodList = response;
                 $scope.getMyMoodAverage = response[0];
                 $scope.totalMoods = response.length;
+                var weekMood = [];
+                var weekMoodWeek = [];
+                var weekMoodPoint = [];
+
+
+                $scope.weekMood = _.each($scope.getMyMoodList, function (key, item) {
+                    var temp = {};
+                    temp.week = key.date.week;
+                    temp.point = key.point;
+                    weekMood.push(temp);
+                });
+
+                $scope.sortWeek = _.sortBy(weekMood, 'week');
                 $scope.point = _.groupBy(response, 'point');
+
+                for (var i = 0; i <= $scope.sortWeek.length - 1; i++) {
+                    weekMoodWeek[i] = 'Week: ' + $scope.sortWeek[i].week;
+                    weekMoodPoint[i] = $scope.sortWeek[i].point;
+                }
 
                 for (var i = 1; i <= 5; i++) {
                     $scope.size[i] = _.size($scope.point[i]);
@@ -38,7 +56,7 @@ function myMoodController ($scope, DataService, $rootScope) {
                 }
 
                 new Chart(document.getElementById("doughnut-distribution"), {
-                    type: 'doughnut',
+                    type: 'pie',
                     data: {
                         labels: [
                             'Very sad' + '(' + $scope.percentageMoods[1] + '%)',
@@ -49,30 +67,35 @@ function myMoodController ($scope, DataService, $rootScope) {
                         ],
                         datasets: [{
                             label: "Distrubution",
-                            backgroundColor: ["#610B0B","#FF0000","#F0B922","#BCF5A9","#0B610B"],
+                            backgroundColor: ["#E02700", "#DB6609", "#DBA309", "#C3D709", "#6DCB00"],
                             data: [$scope.size[1], $scope.size[2], $scope.size[3], $scope.size[4], $scope.size[5]]
                         }]
                     },
                     options: {
                         legend: {
-                            position: 'left',
+                            position: 'bottom',
                             fullWidth: 'false',
-                            labels:{
-                                display:false,
-                            }
+                            labels: {
+                                display: false
+                            },
+                            responsive: true,
+                            maintainAspectRatio: false
                         }
 
                     }
                 });
 
+                document.getElementById("doughnut-distribution").style.height = '200px';
+                document.getElementById("doughnut-distribution").style.width = '250px';
+
                 new Chart(document.getElementById("line-chart-graph"), {
                     type: 'line',
                     data: {
-                        labels: ["26/17", "27/17", "28/17", "29/17", "30/17"]   ,
+                        labels: weekMoodWeek,
                         datasets: [{
-                            data: [20, 3, 1, 5, 4],
-                            label: "Moods in all week",
-                            borderColor: "#3e95cd",
+                            data: weekMoodPoint,
+                            label: "Mood point in week",
+                            borderColor: "#e6614f",
                             fill: false
                         }]
                     }

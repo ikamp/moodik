@@ -64,12 +64,17 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
             var tagsFourWeekName = [];
             var tagsFourWeek = [];
             var companyFilledWeeks = [];
+            var votedList = [];
+            var votedListName = [];
+            var votedListLength = [];
             var j = 0;
             var k = 0;
 
             $scope.getEmployeeMoodList = response;
             $scope.moodTags = _.groupBy($scope.getEmployeeMoodList, 'moodTag');
             $scope.weeklyMoods = _.groupBy($scope.getEmployeeMoodList, 'week');
+            $scope.votedEmployees = _.groupBy($scope.getEmployeeMoodList, 'voted');
+
 
             $scope.popularTagList = _.each($scope.moodTags, function (key, item) {
                 var temp = {};
@@ -79,6 +84,13 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                     temp.week = key[i].week;
                 }
                 popularTags.push(temp);
+            });
+
+            $scope.votedList = _.each($scope.votedEmployees, function (key, item) {
+                var temp = {};
+                temp.name = item;
+                temp.length = key.length;
+                votedList.push(temp);
             });
 
             $scope.companyFilledWeeks = _.each($scope.weeklyMoods, function (key, item) {
@@ -115,6 +127,14 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                 weeklyTopTagsLength[i] = popularTags[i].length;
                 weeklyTopTagsWeek[i] = popularTags[i].week;
             }
+
+            for (var i = 0; i <= votedList.length - 1; i++) {
+                votedListName[i] = votedList[i].name;
+                votedListLength[i] = votedList[i].length;
+            }
+
+            console.log(votedListName);
+            console.log(votedListLength);
 
             for (var i = 0; i <= weeklyAverageMoods.length - 1; i++) {
                 weeklyAverageMoodsPoint[i] = Math.round(weeklyAverageMoods[i].averagePoint);
@@ -165,11 +185,11 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                 datasets: [{
                     data: currentTopTagsLength,
                     label: "tag",
-                    borderColor: "rgba(0, 0, 255, 0.3)",
-                    backgroundColor: "rgba(0,0,255,0.3)",
+                    borderColor: "rgb(65, 255, 57)",
+                    backgroundColor: "rgba(105, 172, 98, 0.6)",
                     borderWidth: 0.5,
-                    pointBorderColor: "rgba(197,23,1,1)",
-                    pointBackgroundColor: "rgba(255,255,255,0.8)",
+                    pointBorderColor: "rgb(65, 255, 57)",
+                    pointBackgroundColor: "rgba(105, 172, 98, 0.6)",
                     pointBorderWidth: 1.5,
                     tension: -1,
                     yAxisID: "y-axis-1"
@@ -179,7 +199,7 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
             var _options = {
                 scales: {
                     xAxes: [{
-                        barThickness: 15
+                        barThickness: 25
                     }],
                     yAxes: [{
                         ticks: {
@@ -209,7 +229,7 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                         data: tagsFourWeek,
                         scaleGridLineWidth: 1,
                         label: "Tags popularity",
-                        borderColor: "#3e95cd",
+                        borderColor: "rgba(105, 172, 98, 0.6)",
                         fill: false
                     }]
                 },
@@ -238,9 +258,9 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                     labels: averageMoodsFourWeek,
                     datasets: [{
                         data: averageMoodsFourWeekPoint,
-                        backgroundColor: 'rgba(123, 83, 252, 0.8)',
-                        borderColor: 'rgba(33, 232, 234, 1)',
-                        borderWidth: 1,
+                        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                        borderColor: 'rgba(0, 0, 0, 0.9)',
+                        borderWidth: 4,
                         fill: false,
                         scaleGridLineWidth: 1,
                         label: "Mood Average"
@@ -299,17 +319,17 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
             new Chart(document.getElementById("pie-chart"), {
                 type: 'pie',
                 data: {
-                    labels: ["kullananlar", "kullanmayanlar"],
+                    labels: ["Non-Voted", "Voted"],
                     datasets: [{
-                        label: "Mood bildirimi",
-                        backgroundColor: ["#3e95cd", "#8e5ea2"],
-                        data: [75, 25]
+                        label: "Voted Employees",
+                        backgroundColor: ["rgba(105, 172, 98, 0.6)", "rgba(192, 83, 91, 0.6)"],
+                        data: votedListLength
                     }]
                 },
                 options: {
                     title: {
                         display: true,
-                        text: 'Predicted world population (millions) in 2050'
+                        text: 'Employee number who gave vote or not.'
                     }
                 }
             });

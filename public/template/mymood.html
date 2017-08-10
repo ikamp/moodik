@@ -5,7 +5,7 @@
         <div class="col-md-3">
             <div class="panel panel-default panel-mymood">
                 <div class="panel-heading">Total</div>
-                <div class="panel-body panel-moodwidget">
+                <div class="panel-body panel-moodwidget" style="height: 232px;">
                     <h1 ng-init="totalMoods">
                         {{totalMoods}}
                     </h1>
@@ -17,7 +17,7 @@
         <div class="col-md-3">
             <div class="panel panel-default panel-mymood">
                 <div class="panel-heading">Avarage Mood</div>
-                <div class="panel-body panel-moodwidget">
+                <div class="panel-body panel-moodwidget" style="height: 232px;">
                     <h1><img src="img/emotion/{{getMyMoodAverage.average}}.png"></h1>
                     <p>
                         {{mapMood[getMyMoodAverage.average-1]}}
@@ -28,8 +28,8 @@
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Distribution</div>
-                <div class="panel-body panel-moodwidget" style="line-height: 300px;">
-                    <div class="chart-container" style="height: 200px; width: 300px;">
+                <div class="panel-body panel-moodwidget" style="line-height: 100px;">
+                    <div class="chart-container center-block"  style="height: 200px; width: 300px;">
                         <canvas id="doughnut-distribution"></canvas>
                     </div>
                 </div>
