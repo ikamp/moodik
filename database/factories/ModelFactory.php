@@ -50,12 +50,6 @@ $factory->define(App\Mood::class, function () {
     ];
 });
 
-$factory->define(App\Tag::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->word,
-    ];
-});
-
 $factory->define(App\MoodTag::class, function () {
     return [
         'tag_id' => $tagId = rand(1, 7),

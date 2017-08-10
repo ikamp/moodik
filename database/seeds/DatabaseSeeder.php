@@ -17,8 +17,53 @@ class DatabaseSeeder extends Seeder
         factory(App\Employee::class, 70)->create();
         factory(App\Suggestion::class, 70)->create();
         factory(App\Mood::class, 70)->create();
-        factory(App\Tag::class, 7)->create();
-        factory(App\MoodTag::class, 70)->create();
 
+        DB::table('tag')->insert([
+            'name' => 'Career'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Colleaugues'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Communication'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Health'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Holidays'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Task area/Activity'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Work equipment'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Working time'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Managers'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Workload'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Work environment'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Salary training'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Professional training'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Others'
+        ]);
+        DB::table('tag')->insert([
+            'name' => 'Organization'
+        ]);
+
+        factory(App\MoodTag::class, 70)->create();
     }
 }

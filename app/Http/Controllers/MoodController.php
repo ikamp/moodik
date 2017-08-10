@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mood;
+use App\Suggestion;
 use Illuminate\Http\Request;
 
 class MoodController extends Controller
@@ -40,7 +41,23 @@ class MoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $suggestion = Suggestion::create(
+            [
+
+                'description' => $request->suggestion,
+            ]
+        );
+
+         Mood::create(
+            [
+                'employee_id' => $request->employeeId,
+                'point' => (int)$request->point,
+                'week' => $request->week,
+                'suggestion_id' =>$suggestion->id,
+                'remember_token'=>str_random(30)
+            ]
+        );
+
     }
 
     /**
@@ -58,6 +75,8 @@ class MoodController extends Controller
             ->whereHas('employee', function ($query) use ($employeeId) {
                 $query->where('employee_id', $employeeId);
             })->get();
+
+        return response()->json($moodList);
 
         $json = json_decode($moodList, true);
 
@@ -82,7 +101,7 @@ class MoodController extends Controller
             );
         }
 
-        return response()->json($mood);
+        //return response()->json($mood);
     }
 
 

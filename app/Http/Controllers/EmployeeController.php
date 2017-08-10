@@ -77,16 +77,16 @@ class EmployeeController extends Controller
      */
     public function show($companyId)
     {
-        $employeeList = Employee::with(
-            [
-                'department'
-            ]
-        )->whereHas('department', function ($query) use ($companyId) {
-            $query->where('company_id', $companyId);
-        }
-        )->get();
-
-
+        $employeeList = Employee::where(
+            'company_id',
+            '=',
+            $companyId
+        )->where(
+            'status_id',
+            '!=',
+            '3'
+        )
+            ->get();
         return response()->json($employeeList);
     }
 

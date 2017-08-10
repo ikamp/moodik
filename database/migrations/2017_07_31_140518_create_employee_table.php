@@ -23,6 +23,7 @@ class CreateEmployeeTable extends Migration
             $table->string('email')->unique();
             $table->string('password')->nullable();
             $table->boolean('activated')->default(false);
+            $table->boolean('weekly_voted')->default(false);
             $table->rememberToken();
             $table->timestamps();
 

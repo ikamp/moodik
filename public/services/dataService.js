@@ -11,7 +11,8 @@ function dataService($http) {
         getEmployeeMoodList: getEmployeeMoodList,
         getMyMoodList: getMyMoodList,
         postInvitedEmployee: postInvitedEmployee,
-        saveInvitedEmployee: saveInvitedEmployee
+        saveInvitedEmployee: saveInvitedEmployee,
+        postWeeklyMood: postWeeklyMood
     }
 
     function getDepartmentList(callback, errorCallback) {
@@ -103,5 +104,13 @@ function dataService($http) {
         }, function (error) {
             errorCallback && errorCallback(error);
         });
+    }
+    function postWeeklyMood(data, callback, errorCallback) {
+        $http.post('api/mood', angular.toJson(data))
+            .then(function() {
+                callback();
+            }, function(error) {
+                errorCallback && errorCallback(error);
+            });
     }
 }

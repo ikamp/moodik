@@ -36,6 +36,10 @@ angular
                 templateUrl: 'template/mymood.html',
                 controller: 'MyMoodController'
             })
+            .when('/weeklymood', {
+                templateUrl: 'template/mood.html',
+                controller: 'WeeklyMoodController'
+            })
             .when('/password/new/:token', {
                 templateUrl: 'template/invite.html',
                 controller: 'InviteController'

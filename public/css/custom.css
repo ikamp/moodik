@@ -1,6 +1,7 @@
 @import 'font.css';
 @import 'login.css';
 @import 'signup.css';
+@import 'mood.css';
 
 html {
     min-height:100%;
@@ -194,3 +195,4 @@ a:hover {
 .panel-moodwidget {
     height: 150px;
 }
+

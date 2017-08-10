@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Suggestion extends Model
 {
     protected $table = 'suggestion';
+    protected $fillable = ['description'];
     public $timestamps = false;
 
     public function mood()
