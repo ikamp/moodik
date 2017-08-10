@@ -46,11 +46,9 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
             if ($scope.companyId)
                 employeeMoodList();
         }
-
     });
 
     function employeeMoodList() {
-
         DataService.getEmployeeMoodList($scope.companyId, function (response) {
             var popularTags = [];
             var weeklyTopTagsName = [];
@@ -124,13 +122,11 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
             }
 
             for (var i = 0; i <= popularTags.length - 1; i++) {
-
                 if (weeklyTopTagsWeek[i] == $rootScope.currentWeek) {
                     currentTopTagsName[j] = weeklyTopTagsName[i];
                     currentTopTagsLength[j] = weeklyTopTagsLength[i];
                     j++;
                 }
-
             }
 
             for (var i = 0; i <= popularTags.length - 1; i++) {
@@ -244,8 +240,7 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                         fill: false,
                         scaleGridLineWidth: 1,
                         label: "Mood Average"
-                    }
-                    ]
+                    }]
                 },
                 options: {
                     scales: {
@@ -285,7 +280,7 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                             borderWidth: 2,
                             backgroundColor: 'rgba(255, 51, 51, 0.25)'
 
-                        }],
+                        }]
                     },
                     title: {
                         display: true,

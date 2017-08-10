@@ -14,8 +14,7 @@
         <div class="col-md-2 name">
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                        data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="true">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                     {{user.name}}
                     <span class="fa fa-bars"></span>
                 </button>
@@ -28,9 +27,11 @@
     <div class="row body">
         <div class="col-md-2 sidebar" id="sideBar" ng-show='flag'>
             <ul>
-                <li><a href="#/dashboard" ng-show="user.status_id == 1"><span class="fa fa-square"></span>Dashboard</a></li>
+                <li><a href="#/dashboard" ng-show="user.status_id == 1"><span class="fa fa-square"></span>Dashboard</a>
+                </li>
                 <li><a href="#/mymood"><span class="fa fa-smile-o"></span>My Mood</a></li>
-                <li><a href="#/employee" ng-show="user.status_id == 1"><span class="fa fa-users"></span>Employees</a></li>
+                <li><a href="#/employee" ng-show="user.status_id == 1"><span class="fa fa-users"></span>Employees</a>
+                </li>
             </ul>
         </div>
         <div class="col-xs-8">

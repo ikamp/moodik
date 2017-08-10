@@ -40,28 +40,28 @@
                     </tr>
                     </thead>
                     <tbody ng-repeat="employee in getEmployeeList track by $index">
-                    <tr>
-                        <td>{{$index+1}}</td>
-                        <td>{{employee.name}} {{employee.last_name}}</td>
-                        <td>{{employee.email}}</td>
-                        <td>{{employee.department.name}}</td>
-                        <td>
-                            <div class="dropdown">
-                                <button class="btn-action btn-default dropdown-toggle" type="button" id="menu1"
-                                        data-toggle="dropdown">Actions
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                    <li role="presentation">
-                                        <a role="menuitem" target="_self" tabindex="-1">Delete</a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a role="menuitem" target="_self" tabindex="-1">Edit</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{{$index+1}}</td>
+                            <td>{{employee.name}} {{employee.last_name}}</td>
+                            <td>{{employee.email}}</td>
+                            <td>{{employee.department.name}}</td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn-action btn-default dropdown-toggle" type="button" id="menu1"
+                                            data-toggle="dropdown">Actions
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                        <li role="presentation">
+                                            <a role="menuitem" target="_self" tabindex="-1">Delete</a>
+                                        </li>
+                                        <li role="presentation">
+                                            <a role="menuitem" target="_self" tabindex="-1">Edit</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
