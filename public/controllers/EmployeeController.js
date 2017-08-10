@@ -4,7 +4,7 @@ angular.module('moodikApp')
 function employeeController ($scope, $timeout, DataService, $rootScope) {
     $scope.departmentChangeEmployee = {};
     $scope.companyId = $rootScope.user.company_id;
-
+    $scope.department = {};
     $scope.remove = function (employee) {
         DataService.removeEmployee(employee, function () {
             $rootScope.message = "Employee removed in your company.";
@@ -23,6 +23,16 @@ function employeeController ($scope, $timeout, DataService, $rootScope) {
 
         DataService.updateDepartment($scope.departmentChangeEmployee, function () {
             $rootScope.message = "Employee's department updated.";
+            $timeout(function () {
+                $rootScope.message = false;
+            }, 4000);
+        })
+    };
+
+    $scope.newDepartment = function (department) {
+        $scope.department.companyId = $rootScope.user.company_id;
+        DataService.newDepartment(department, function () {
+            $rootScope.message = "New department added.";
             $timeout(function () {
                 $rootScope.message = false;
             }, 4000);

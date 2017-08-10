@@ -112,7 +112,30 @@
                         </button>
                     </div>
                 </div>
-            </form>
+            </form><br>
+            <div class="row">
+                <div class="col-md-2">
+                    <button class="btn btn-warning" type="button" ng-click="dep = !dep">
+                        <span class="fa fa-plus"></span>
+                        Create New Department
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <div ng-show="dep">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-model="department.name" placeholder="New Department Name"
+                                           aria-describedby="basic-addon1">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="newDepartment(department)">Save</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

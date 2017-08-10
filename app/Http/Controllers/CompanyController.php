@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Employee;
 use App\Mood;
 use Illuminate\Support\Facades\DB;
@@ -45,7 +46,10 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Department::create([
+            'company_id' => $request->companyId,
+            'name' => $request->name,
+        ]);
     }
 
     /**
