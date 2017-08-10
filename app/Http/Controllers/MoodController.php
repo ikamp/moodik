@@ -43,7 +43,6 @@ class MoodController extends Controller
     {
         $suggestion = Suggestion::create(
             [
-
                 'description' => $request->suggestion,
             ]
         );
@@ -53,11 +52,10 @@ class MoodController extends Controller
                 'employee_id' => $request->employeeId,
                 'point' => (int)$request->point,
                 'week' => $request->week,
-                'suggestion_id' =>$suggestion->id,
-                'remember_token'=>str_random(30)
+                'suggestion_id' => $suggestion->id,
+                'remember_token'=> str_random(30)
             ]
         );
-
     }
 
     /**
@@ -75,7 +73,6 @@ class MoodController extends Controller
             ->whereHas('employee', function ($query) use ($employeeId) {
                 $query->where('employee_id', $employeeId);
             })->get();
-
 
         $json = json_decode($moodList, true);
 
@@ -99,10 +96,8 @@ class MoodController extends Controller
                 )
             );
         }
-
         return response()->json($mood);
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -110,8 +105,7 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit(Mood $mood)
+    public function edit(Mood $mood)
     {
         //
     }
@@ -123,8 +117,7 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public
-    function update(Request $request, Mood $mood)
+    public function update(Request $request, Mood $mood)
     {
         //
     }
@@ -135,8 +128,7 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy(Mood $mood)
+    public function destroy(Mood $mood)
     {
         //
     }
