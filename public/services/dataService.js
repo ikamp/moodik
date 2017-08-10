@@ -5,13 +5,14 @@ function dataService($http) {
     return {
         getDepartmentList: getDepartmentList,
         getEmployeeList: getEmployeeList,
+        getMyMoodList: getMyMoodList,
+        getEmployeeMoodList: getEmployeeMoodList,
         postLoginInfo: postLoginInfo,
         postRegisterInfo: postRegisterInfo,
-        sendCode: sendCode,
-        getEmployeeMoodList: getEmployeeMoodList,
-        getMyMoodList: getMyMoodList,
         postInvitedEmployee: postInvitedEmployee,
-        saveInvitedEmployee: saveInvitedEmployee
+        sendCode: sendCode,
+        saveInvitedEmployee: saveInvitedEmployee,
+        removeEmployee: removeEmployee
     }
 
     function getDepartmentList(callback, errorCallback) {
@@ -65,6 +66,15 @@ function dataService($http) {
 
     function postInvitedEmployee (employee, callback, errorCallbak) {
         $http.post('/api/employee', angular.toJson(employee))
+            .then(function(response) {
+                callback(response.data);
+            }, function(error) {
+                errorCallbak && errorCallbak(error);
+            });
+    }
+
+    function removeEmployee (employee, callback, errorCallbak) {
+        $http.put('/api/employee/' + employee.id, angular.toJson(employee))
             .then(function(response) {
                 callback(response.data);
             }, function(error) {

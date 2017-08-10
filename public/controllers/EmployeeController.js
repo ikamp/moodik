@@ -4,6 +4,16 @@ angular.module('moodikApp')
 function employeeController ($scope, $timeout, DataService, $rootScope) {
 
     $scope.companyId = $rootScope.user.company_id;
+
+    $scope.remove = function (employee) {
+        DataService.removeEmployee(employee, function () {
+            $rootScope.message = "Employee removed in your company.";
+            $timeout(function () {
+                $rootScope.message = false;
+            }, 4000);
+        })
+    };
+
     $scope.invite = function (employee) {
         DataService.postInvitedEmployee(employee, function (response) {
             $rootScope.message = "Employee invited.";

@@ -77,16 +77,15 @@ class EmployeeController extends Controller
      */
     public function show($companyId)
     {
-        $employeeList = Employee::with(
-            [
-                'department'
-            ]
-        )->whereHas('department', function ($query) use ($companyId) {
-            $query->where('company_id', $companyId);
-        }
+        $employeeList = Employee::where(
+            'company_id',
+            '=',
+            $companyId
+        )->where(
+            'status_id',
+            '!=',
+            '3'
         )->get();
-
-
         return response()->json($employeeList);
     }
 
@@ -108,9 +107,11 @@ class EmployeeController extends Controller
      * @param  \App\Employee $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request)
     {
-        //
+        $employee = Employee::where('id', $request->id)->first();
+        $employee->status_id = 3;
+        $employee->save();
     }
 
     /**

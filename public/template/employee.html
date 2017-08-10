@@ -53,10 +53,10 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                         <li role="presentation">
-                                            <a role="menuitem" target="_self" tabindex="-1">Delete</a>
+                                            <a role="menuitem" target="_self" tabindex="-1" ng-click="remove(employee)">Remove from Company</a>
                                         </li>
                                         <li role="presentation">
-                                            <a role="menuitem" target="_self" tabindex="-1">Edit</a>
+                                            <a role="menuitem" target="_self" tabindex="-1">Change Department</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -92,8 +92,8 @@
                             <input type="text" class="form-control" placeholder="Employee Lastname"
                                    aria-describedby="basic-addon1" ng-model="add.employeeLastname">
                         </div>
-                        <select class="form-control" ng-model="add.employeeDepartment" ng-options="department.id as department.name for department in
-                            departments">
+                        <select class="form-control" ng-model="add.employeeDepartment"
+                                ng-options="department.id as department.name for department in departments">
                         </select>
                         <button class="btn-invite btn-default" type="button" ng-click="invite(add)">
                             <span class="fa fa-plus"></span>
