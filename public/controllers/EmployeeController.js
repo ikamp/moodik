@@ -5,6 +5,11 @@ function employeeController ($scope, $timeout, DataService, $rootScope) {
     $scope.departmentChangeEmployee = {};
     $scope.companyId = $rootScope.user.company_id;
     $scope.department = {};
+
+    if ($rootScope.user && $rootScope.user.company_id) {
+        employeeList()
+    }
+
     $scope.remove = function (employee) {
         DataService.removeEmployee(employee, function () {
             $rootScope.message = "Employee removed in your company.";
@@ -52,7 +57,9 @@ function employeeController ($scope, $timeout, DataService, $rootScope) {
         $scope.departments = response;
     });
 
-    DataService.getEmployeeList($scope.companyId, function (response) {
-        $scope.getEmployeeList = response;
-    });
+    function employeeList() {
+        DataService.getEmployeeList($scope.companyId, function (response) {
+            $scope.getEmployeeList = response;
+        });
+    }
 }
