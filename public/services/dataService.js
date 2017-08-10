@@ -10,6 +10,7 @@ function dataService($http) {
         postLoginInfo: postLoginInfo,
         postRegisterInfo: postRegisterInfo,
         postInvitedEmployee: postInvitedEmployee,
+        postWeeklyMood: postWeeklyMood,
         sendCode: sendCode,
         saveInvitedEmployee: saveInvitedEmployee,
         removeEmployee: removeEmployee,
@@ -116,6 +117,13 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
+    function postWeeklyMood(data, callback, errorCallback) {
+        $http.post('api/mood', angular.toJson(data))
+            .then(function() {
+                callback();
+            }, function(error) {
+                errorCallback && errorCallback(error);
+            });
 
     function updateDepartment(employee, callback, errorCallbak) {
         $http.put('/api/company/' + employee.employeeId, angular.toJson(employee))

@@ -215,6 +215,10 @@ function dashboardController($scope, $rootScope, DataService, AuthService) {
                 },
                 options: {
                     scales: {
+                        xAxes: [{
+                            categoryPercentage: 0.3,
+                            barPercentage: 1.0
+                        }],
                         yAxes: [{
                             ticks: {
                                 stepSize: 1

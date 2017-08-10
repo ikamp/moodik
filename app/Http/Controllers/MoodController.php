@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mood;
+use App\Suggestion;
 use Illuminate\Http\Request;
 
 class MoodController extends Controller
@@ -40,7 +41,21 @@ class MoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $suggestion = Suggestion::create(
+            [
+                'description' => $request->suggestion,
+            ]
+        );
+
+         Mood::create(
+            [
+                'employee_id' => $request->employeeId,
+                'point' => (int)$request->point,
+                'week' => $request->week,
+                'suggestion_id' => $suggestion->id,
+                'remember_token'=> str_random(30)
+            ]
+        );
     }
 
     /**
@@ -81,10 +96,8 @@ class MoodController extends Controller
                 )
             );
         }
-
         return response()->json($mood);
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -92,8 +105,7 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit(Mood $mood)
+    public function edit(Mood $mood)
     {
         //
     }
@@ -105,8 +117,7 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public
-    function update(Request $request, Mood $mood)
+    public function update(Request $request, Mood $mood)
     {
         //
     }
@@ -117,8 +128,7 @@ class MoodController extends Controller
      * @param  \App\Mood $mood
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy(Mood $mood)
+    public function destroy(Mood $mood)
     {
         //
     }
