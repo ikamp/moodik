@@ -76,7 +76,6 @@ class MoodController extends Controller
                 $query->where('employee_id', $employeeId);
             })->get();
 
-        return response()->json($moodList);
 
         $json = json_decode($moodList, true);
 
@@ -101,7 +100,7 @@ class MoodController extends Controller
             );
         }
 
-        //return response()->json($mood);
+        return response()->json($mood);
     }
 
 
