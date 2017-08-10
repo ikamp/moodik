@@ -48,15 +48,20 @@ function myMoodController ($scope, DataService, $rootScope) {
                             'Very happy' + '(' + $scope.percentageMoods[5] + '%)'
                         ],
                         datasets: [{
-                            label: "Mood percentages",
-                            backgroundColor: ["#13425C", "#10B292", "#F0B922", "#E3611B", "#DE5B49"],
+                            label: "Distrubution",
+                            backgroundColor: ["#610B0B","#FF0000","#F0B922","#BCF5A9","#0B610B"],
                             data: [$scope.size[1], $scope.size[2], $scope.size[3], $scope.size[4], $scope.size[5]]
                         }]
                     },
                     options: {
                         legend: {
-                            position: 'right'
+                            position: 'left',
+                            fullWidth: 'false',
+                            labels:{
+                                display:false,
+                            }
                         }
+
                     }
                 });
 

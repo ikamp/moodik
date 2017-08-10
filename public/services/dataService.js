@@ -42,45 +42,45 @@ function dataService($http) {
 
     function postLoginInfo(data, callback, errorCallback) {
         $http.post('/login', angular.toJson(data))
-            .then(function() {
+            .then(function () {
                 callback();
-            }, function(error) {
+            }, function (error) {
                 errorCallback && errorCallback(error);
             });
     }
 
     function postRegisterInfo(data, callback, errorCallback) {
         $http.post('/register', angular.toJson(data))
-            .then(function() {
+            .then(function () {
                 callback();
-            }, function(error) {
+            }, function (error) {
                 errorCallback && errorCallback(error);
             });
     }
 
-    function saveInvitedEmployee (employee, callback, errorCallbak) {
+    function saveInvitedEmployee(employee, callback, errorCallbak) {
         $http.post('/invite', angular.toJson(employee))
-            .then(function() {
+            .then(function () {
                 callback();
-            }, function(error) {
+            }, function (error) {
                 errorCallbak && errorCallbak(error);
             });
     }
 
-    function postInvitedEmployee (employee, callback, errorCallbak) {
+    function postInvitedEmployee(employee, callback, errorCallbak) {
         $http.post('/api/employee', angular.toJson(employee))
-            .then(function(response) {
+            .then(function (response) {
                 callback(response.data);
-            }, function(error) {
+            }, function (error) {
                 errorCallbak && errorCallbak(error);
             });
     }
 
-    function removeEmployee (employee, callback, errorCallbak) {
+    function removeEmployee(employee, callback, errorCallbak) {
         $http.put('/api/employee/' + employee.id, angular.toJson(employee))
-            .then(function(response) {
+            .then(function (response) {
                 callback(response.data);
-            }, function(error) {
+            }, function (error) {
                 errorCallbak && errorCallbak(error);
             });
     }
@@ -117,19 +117,21 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
+
     function postWeeklyMood(data, callback, errorCallback) {
         $http.post('api/mood', angular.toJson(data))
-            .then(function() {
+            .then(function () {
                 callback();
-            }, function(error) {
+            }, function (error) {
                 errorCallback && errorCallback(error);
             });
+    }
 
     function updateDepartment(employee, callback, errorCallbak) {
         $http.put('/api/company/' + employee.employeeId, angular.toJson(employee))
-            .then(function(response) {
+            .then(function (response) {
                 callback(response.data);
-            }, function(error) {
+            }, function (error) {
                 errorCallbak && errorCallbak(error);
             });
     }
