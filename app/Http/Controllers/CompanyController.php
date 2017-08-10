@@ -72,12 +72,12 @@ class CompanyController extends Controller
                     'suggestion' => $json[$i]['suggestion'],
                     'point' => $json[$i]['point'],
                     'week' => $json[$i]['week'],
+                    'moodDate' => $json[$i]['created_at'],
                     'moodTag' => $json[$i]['mood_tag']['tags'][$j]['name']
                 );
             }
         }
         return response()->json($companyMood);
-
     }
 
     /**

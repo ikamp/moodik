@@ -12,7 +12,7 @@ function signUpController($scope, $rootScope, $location, DataService) {
 
     $scope.postRegister = function (data) {
         DataService.postRegisterInfo(data, function (response) {
-            $location.path('/mymood');
+            $location.path('/verify');
         })
     }
 }
