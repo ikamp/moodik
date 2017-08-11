@@ -8,20 +8,22 @@
                     <div class="registerform">
                         {{messages}}
                         <form name="forgetForm" novalidate>
-                            <div ng-message="email" class="alert alert-danger notification">
-                                This field must be a valid email address.
-                            </div>
                             <div ng-messages="forgetForm.$error" role="alert">
-                                <div class="forgetForm">
-                                    <div class="input-group" ng-class="{ 'has-error': forgetForm.email.$touched && forgetForm.email.$invalid }">
-                                    <span class="input-group-addon" id="sizing-addon1">
-                                        <span class="fa fa-envelope"></span>
-                                    </span>
-                                        <input type="email" name="email" class="form-control" placeholder="Email address..."
-                                               aria-describedby="sizing-addon1" ng-model="forget.email">
+                                <div ng-message="email" class="alert alert-danger notification">
+                                    This field must be a valid email address.
+                                </div>
+                                <div ng-messages="forgetForm.$error" role="alert">
+                                    <div class="forgetForm">
+                                        <div class="input-group" ng-class="{ 'has-error': forgetForm.email.$touched && forgetForm.email.$invalid }">
+                                        <span class="input-group-addon" id="sizing-addon1">
+                                            <span class="fa fa-envelope"></span>
+                                        </span>
+                                            <input type="email" name="email" class="form-control" placeholder="Email address..."
+                                                   aria-describedby="sizing-addon1" ng-model="forget.email">
+                                        </div>
+                                        <a href="" class="btn btn-login btn-block" role="button" ng-click="postForget(forget)">Send Email!</a>
+                                        <p>Remember your password? <a href="#/login" >Login</a><p>
                                     </div>
-                                    <a href="" class="btn btn-login btn-block" role="button" ng-click="postForget(forget)">New Password!</a>
-                                    <p>Remember your password? <a href="#/login" >Login</a><p>
                                 </div>
                             </div>
                         </form>
