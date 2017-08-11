@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Employee;
 use App\Mood;
 use App\Suggestion;
 use Illuminate\Http\Request;
@@ -56,6 +57,11 @@ class MoodController extends Controller
                 'remember_token'=> str_random(30)
             ]
         );
+
+        $vote = Employee::find($request->employeeId);
+        $vote->update([
+            'weekly_voted' => true
+        ]);
     }
 
     /**
@@ -73,6 +79,7 @@ class MoodController extends Controller
             ->whereHas('employee', function ($query) use ($employeeId) {
                 $query->where('employee_id', $employeeId);
             })->get();
+
 
         $json = json_decode($moodList, true);
 

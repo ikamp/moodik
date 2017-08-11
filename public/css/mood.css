@@ -49,7 +49,7 @@ body {
     font-size: 12px;
 }
 
-.btn-tag:hover, active {
+.btn-tag:active, active {
     color: #fafafa;
     background-color: #e6614f;
     border-color: #ec5844;
@@ -86,22 +86,3 @@ body {
     background-color: #4cae4c;
     border-color: #5cb85c;
 }
-
-.input-hidden {
-    position: absolute;
-    left: -9999px;
-}
-
-input[type=radio]:checked + label > img {
-    border: 1px solid #fff;
-    box-shadow: 0 0 3px 3px #090;
-}
-
-/* Stuff after this is only to make things more pretty */
-input[type=radio] + label > img {
-    border: 1px dashed #444;
-    width: 150px;
-    height: 150px;
-    transition: 500ms all;
-}
-
