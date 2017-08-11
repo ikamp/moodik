@@ -61,28 +61,34 @@ class CompanyController extends Controller
     public function show($companyId)
     {
         $companyMood = [];
+        $moodTagArray = [];
         $companyMoodList = Mood::with(
             'suggestion',
             'moodTag.tags',
             'employee.department.company'
-        )->whereHas('employee.department.company', function ($query) use ($companyId) {
+        )->whereHas('employee.company', function ($query) use ($companyId) {
             $query->where('id', $companyId);
         })->get();
 
-
         $json = json_decode($companyMoodList, true);
+
         for ($i = 1; $i < count($json); $i++) {
             for ($j = 0; $j < sizeof($json[$i]['mood_tag']['tags']); $j++) {
-                $companyMood[] = array(
-                    'id' => $json[$i]['id'],
-                    'suggestion' => $json[$i]['suggestion'],
-                    'point' => $json[$i]['point'],
-                    'week' => $json[$i]['week'],
-                    'voted' => $json[$i]['employee']['weekly_voted'],
-                    'moodDate' => $json[$i]['created_at'],
-                    'moodTag' => $json[$i]['mood_tag']['tags'][$j]['name']
-                );
+                $moodTagArray[] = $json[$i]['mood_tag']['tags'][$j]['name'];
             }
+        }
+        for ($i = 1; $i < count($json); $i++) {
+
+            $companyMood[] = array(
+                'id' => $json[$i]['id'],
+                'suggestion' => $json[$i]['suggestion'],
+                'point' => $json[$i]['point'],
+                'week' => $json[$i]['week'],
+                'voted' => $json[$i]['employee']['weekly_voted'],
+                'moodDate' => $json[$i]['created_at'],
+                'moodTag' => $moodTagArray
+            );
+
         }
         return response()->json($companyMood);
     }
