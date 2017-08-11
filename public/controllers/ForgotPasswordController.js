@@ -6,7 +6,7 @@ function forgotPasswordController ($scope, $rootScope, AuthService) {
     $scope.forget =  {};
 
     $scope.postForget = function (data) {
-        AuthService.forgotPassword(data, function (response) {
+        AuthService.forgotPassword(data, function () {
             $scope.messages = "We have e-mailed your password reset link!";
         })
     }
