@@ -74,21 +74,16 @@ class CompanyController extends Controller
 
         for ($i = 1; $i < count($json); $i++) {
             for ($j = 0; $j < sizeof($json[$i]['mood_tag']['tags']); $j++) {
-                $moodTagArray[] = $json[$i]['mood_tag']['tags'][$j]['name'];
+                $companyMood[] = array(
+                    'id' => $json[$i]['id'],
+                    'suggestion' => $json[$i]['suggestion'],
+                    'point' => $json[$i]['point'],
+                    'week' => $json[$i]['week'],
+                    'voted' => $json[$i]['employee']['weekly_voted'],
+                    'moodDate' => $json[$i]['created_at'],
+                    'moodTag' => $json[$i]['mood_tag']['tags'][$j]['name']
+                );
             }
-        }
-        for ($i = 1; $i < count($json); $i++) {
-
-            $companyMood[] = array(
-                'id' => $json[$i]['id'],
-                'suggestion' => $json[$i]['suggestion'],
-                'point' => $json[$i]['point'],
-                'week' => $json[$i]['week'],
-                'voted' => $json[$i]['employee']['weekly_voted'],
-                'moodDate' => $json[$i]['created_at'],
-                'moodTag' => $moodTagArray
-            );
-
         }
         return response()->json($companyMood);
     }
