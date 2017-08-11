@@ -5,6 +5,7 @@ function employeeController ($scope, $rootScope, DataService, NotificationServic
     $scope.departmentChangeEmployee = {};
     $scope.companyId = $rootScope.user.company_id;
     $scope.department = {};
+    var employeeListArray = [];
 
     if ($rootScope.user && $rootScope.user.company_id) {
         employeeList()
@@ -54,5 +55,6 @@ function employeeController ($scope, $rootScope, DataService, NotificationServic
         DataService.getEmployeeList($scope.companyId, function (response) {
             $scope.getEmployeeList = response;
         });
+
     }
 }
