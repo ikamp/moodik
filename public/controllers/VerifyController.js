@@ -1,12 +1,12 @@
 angular.module('moodikApp')
     .controller('VerifyController', verifyController);
 
-function verifyController ($scope, $rootScope, DataService) {
+function verifyController ($scope, $rootScope, DataService, NotificationService) {
     $rootScope.flag = false;
 
     $scope.sendCode = function () {
         DataService.sendCode(function () {
-            $scope.message = "We send a new code!!"
+            NotificationService.showMessage('We send a new code!!');
         })
     }
 }

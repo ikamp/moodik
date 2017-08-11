@@ -1,7 +1,7 @@
 angular.module('moodikApp')
     .controller('EmployeeController', employeeController);
 
-function employeeController ($scope, $timeout, DataService, $rootScope) {
+function employeeController ($scope, $rootScope, DataService, NotificationService) {
     $scope.departmentChangeEmployee = {};
     $scope.companyId = $rootScope.user.company_id;
     $scope.department = {};
@@ -17,10 +17,7 @@ function employeeController ($scope, $timeout, DataService, $rootScope) {
 
     $scope.remove = function (employee) {
         DataService.removeEmployee(employee, function () {
-            $rootScope.message = "Employee removed in your company.";
-            $timeout(function () {
-                $rootScope.message = false;
-            }, 4000);
+            NotificationService.showMessage('Employee removed in your company.');
         })
     };
 
@@ -32,29 +29,20 @@ function employeeController ($scope, $timeout, DataService, $rootScope) {
         $scope.departmentChangeEmployee.departmentId = newDepartment.id;
 
         DataService.updateDepartment($scope.departmentChangeEmployee, function () {
-            $rootScope.message = "Employee's department updated.";
-            $timeout(function () {
-                $rootScope.message = false;
-            }, 4000);
+            NotificationService.showMessage("Employee's department updated.");
         })
     };
 
     $scope.newDepartment = function (department) {
         $scope.department.companyId = $rootScope.user.company_id;
         DataService.newDepartment(department, function () {
-            $rootScope.message = "New department added.";
-            $timeout(function () {
-                $rootScope.message = false;
-            }, 4000);
+            NotificationService.showMessage("New department added.");
         })
     };
 
     $scope.invite = function (employee) {
         DataService.postInvitedEmployee(employee, function () {
-            $rootScope.message = "Employee invited.";
-            $timeout(function () {
-                $rootScope.message = false;
-            }, 4000);
+            NotificationService.showMessage("Employee invited.");
         })
     };
 
