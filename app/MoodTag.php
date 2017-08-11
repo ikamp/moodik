@@ -8,6 +8,8 @@ class MoodTag extends Model
 {
     protected $table = 'moodtag';
     public $timestamps = false;
+    protected $fillable = ['mood_id', 'tag_id'];
+
 
     public function moods()
     {

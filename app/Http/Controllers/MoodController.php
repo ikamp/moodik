@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Employee;
 use App\Mood;
+use App\MoodTag;
 use App\Suggestion;
 use Illuminate\Http\Request;
 
@@ -43,25 +44,32 @@ class MoodController extends Controller
     public function store(Request $request)
     {
         $suggestion = Suggestion::create(
-            [
-                'description' => $request->suggestion,
-            ]
+        ['description' => $request->suggestion]
         );
 
-         Mood::create(
+        $mood = Mood::create(
             [
                 'employee_id' => $request->employeeId,
                 'point' => (int)$request->point,
                 'week' => $request->week,
                 'suggestion_id' => $suggestion->id,
-                'remember_token'=> str_random(30)
+                'remember_token' => str_random(30)
             ]
         );
 
-        $vote = Employee::find($request->employeeId);
-        $vote->update([
-            'weekly_voted' => true
-        ]);
+        foreach ($request->tags as $tag) {
+            MoodTag::create(
+                [
+                    'mood_id' => $mood->id,
+                    'tag_id' => (int)$tag,
+                ]
+            );
+
+        }
+            $vote = Employee::find($request->employeeId);
+            $vote->update([
+                'weekly_voted' => true
+            ]);
     }
 
     /**

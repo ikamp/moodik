@@ -24,6 +24,7 @@ function dashboardController($scope, $rootScope, NotificationService, DataServic
             var popularTags = [];
             var popularTopTags = [];
             $scope.getEmployeeMoodList = response;
+
             $scope.moodTags = _.groupBy($scope.getEmployeeMoodList, 'moodTag');
 
             $scope.popularTagList = _.each($scope.moodTags, function (key, item) {
@@ -38,7 +39,6 @@ function dashboardController($scope, $rootScope, NotificationService, DataServic
             });
 
             popularTopTags = _.first(popularTags, [5]);
-
             for (var i = 0; i <= popularTopTags.length - 1; i++) {
                 $scope.moodTagGroup[i] = popularTopTags[i];
             }
