@@ -1,13 +1,22 @@
 angular.module('moodikApp')
     .controller('DashboardController', dashboardController);
 
-function dashboardController($scope, $rootScope, DataService, AuthService) {
+function dashboardController($scope, $rootScope, $timeout, DataService) {
     $rootScope.flag = true;
     $rootScope.currentWeek = 1;
     $rootScope.beforeFourWeek = $rootScope.currentWeek - 3;
     $scope.$on('currentUser', function (event, args) {
         $scope.companyId = $rootScope.user.company_id;
     });
+
+    $scope.sendMail = function () {
+        DataService.sendMail(function () {
+            $rootScope.message = "Emails sent.";
+            $timeout(function () {
+                $rootScope.message = false;
+            }, 4000);
+        });
+    }
 
     $scope.moodTagGroup = [];
     $scope.weekTake = 1;

@@ -14,12 +14,6 @@ $factory->define(App\Department::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Status::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->word,
-    ];
-});
-
 $factory->define(App\Employee::class, function (Faker\Generator $faker) {
     static $password;
     return [
@@ -46,7 +40,6 @@ $factory->define(App\Mood::class, function () {
         'suggestion_id' => $suggestionId = rand(1, 70),
         'point' => rand(1, 5),
         'week' => rand(1, 12),
-        'remember_token' => str_random(10),
     ];
 });
 
