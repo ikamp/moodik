@@ -1,7 +1,7 @@
 angular.module('moodikApp')
     .controller('DashboardController', dashboardController);
 
-function dashboardController($scope, $rootScope, $timeout, DataService) {
+function dashboardController($scope, $rootScope, NotificationService, DataService) {
     $rootScope.flag = true;
     $rootScope.currentWeek = 1;
     $rootScope.beforeFourWeek = $rootScope.currentWeek - 3;
@@ -11,10 +11,7 @@ function dashboardController($scope, $rootScope, $timeout, DataService) {
 
     $scope.sendMail = function () {
         DataService.sendMail(function () {
-            $rootScope.message = "Emails sent.";
-            $timeout(function () {
-                $rootScope.message = false;
-            }, 4000);
+            NotificationService.showMessage('Emails sent.');
         });
     }
 
@@ -141,9 +138,6 @@ function dashboardController($scope, $rootScope, $timeout, DataService) {
                 votedListName[i] = votedList[i].name;
                 votedListLength[i] = votedList[i].length;
             }
-
-            console.log(votedListName);
-            console.log(votedListLength);
 
             for (var i = 0; i <= weeklyAverageMoods.length - 1; i++) {
                 weeklyAverageMoodsPoint[i] = Math.round(weeklyAverageMoods[i].averagePoint);
