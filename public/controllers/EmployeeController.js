@@ -10,6 +10,11 @@ function employeeController ($scope, $timeout, DataService, $rootScope) {
         employeeList()
     }
 
+    $scope.sortBy = function(propertyName) {
+        $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+        $scope.propertyName = propertyName;
+    };
+
     $scope.remove = function (employee) {
         DataService.removeEmployee(employee, function () {
             $rootScope.message = "Employee removed in your company.";
