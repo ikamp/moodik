@@ -14,16 +14,12 @@
                             <span class="input-group-addon" id="basic-addon1"><span
                                     class="fa fa-user-circle"></span></span>
                             <input type="text" class="form-control" placeholder="Name / Email"
-                                   aria-describedby="basic-addon1">
+                                   aria-describedby="basic-addon1" ng-model="$ctrl.search">
                         </div>
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon2"><span class="fa fa-users"></span></span>
                             <input type="text" class="form-control" placeholder="Department"
-                                   aria-describedby="basic-addon1">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon3"><span class="fa fa-diamond"></span></span>
-                            <input type="text" class="form-control" placeholder="Role" aria-describedby="basic-addon1">
+                                   aria-describedby="basic-addon1" ng-model="$ctrl.search2">
                         </div>
                     </div>
                 </div>
@@ -33,13 +29,29 @@
                     <thead>
                     <tr>
                         <th># <span class="caret"></span></th>
-                        <th>Name <span class="caret"></span></th>
-                        <th>Email Address <span class="caret"></span></th>
-                        <th>Department <span class="caret"></span></th>
+                        <th>
+                            Name
+                            <a href="" ng-click="sortBy('name')">
+                                <i class="fa fa-sort" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>
+                            Email Address
+                            <a href="" ng-click="sortBy('email')">
+                                <i class="fa fa-sort" aria-hidden="true"></i>
+                            </a>
+                        </th>
+                        <th>
+                            Department
+                            <a href="" ng-click="sortBy('department.name')">
+                                <i class="fa fa-sort" aria-hidden="true"></i>
+                            </a>
+                        </th>
                         <th>Action</th>
                     </tr>
                     </thead>
-                    <tbody ng-repeat="employee in getEmployeeList track by $index">
+                    <tbody ng-repeat="employee in getEmployeeList | filter:$ctrl.search | filter:$ctrl.search2
+                        | orderBy:propertyName:reverse track by $index">
                         <tr>
                             <td>{{$index+1}}</td>
                             <td>{{employee.name}} {{employee.last_name}}</td>
