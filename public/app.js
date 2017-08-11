@@ -36,7 +36,7 @@ angular
                 templateUrl: 'template/mymood.html',
                 controller: 'MyMoodController'
             })
-            .when('/weeklymood', {
+            .when('/weeklymood/:id', {
                 templateUrl: 'template/mood.html',
                 controller: 'WeeklyMoodController'
             })

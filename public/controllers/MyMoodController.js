@@ -94,7 +94,7 @@ function myMoodController($scope, DataService, $rootScope) {
                         labels: weekMoodWeek,
                         datasets: [{
                             data: weekMoodPoint,
-                            label: "Mood point in week",
+                            label: "Mood point",
                             borderColor: "#e6614f",
                             fill: false
                         }]

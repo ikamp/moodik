@@ -78,7 +78,7 @@ class CompanyController extends Controller
                     'suggestion' => $json[$i]['suggestion'],
                     'point' => $json[$i]['point'],
                     'week' => $json[$i]['week'],
-                    'voted'=> $json[$i]['employee']['weekly_voted'],
+                    'voted' => $json[$i]['employee']['weekly_voted'],
                     'moodDate' => $json[$i]['created_at'],
                     'moodTag' => $json[$i]['mood_tag']['tags'][$j]['name']
                 );
