@@ -51,7 +51,8 @@ angular
     .run(function(AuthService) {
         var url = window.location.href;
         var n = url.indexOf('password');
-        if (n === -1) {
+        var s = url.indexOf('weeklymood');
+        if (n === -1 && s === -1) {
             AuthService.init();
         }
     });
