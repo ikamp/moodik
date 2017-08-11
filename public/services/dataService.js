@@ -65,7 +65,7 @@ function dataService($http) {
             .then(function () {
                 callback();
             }, function (error) {
-                errorCallbak && errorCallbak(error);
+                errorCallback && errorCallback(error);
             });
     }
 
@@ -74,7 +74,7 @@ function dataService($http) {
             .then(function (response) {
                 callback(response.data);
             }, function (error) {
-                errorCallbak && errorCallbak(error);
+                errorCallback && errorCallback(error);
             });
     }
 
