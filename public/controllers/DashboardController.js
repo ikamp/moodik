@@ -1,7 +1,7 @@
 angular.module('moodikApp')
     .controller('DashboardController', dashboardController);
 
-function dashboardController($scope, $rootScope, DataService) {
+function dashboardController($scope, $rootScope, $timeout, DataService) {
     $rootScope.flag = true;
     $rootScope.currentWeek = 1;
     $rootScope.beforeFourWeek = $rootScope.currentWeek - 3;
@@ -10,8 +10,7 @@ function dashboardController($scope, $rootScope, DataService) {
     });
 
     $scope.sendMail = function () {
-        DataService.sendMail(function (response) {
-            $rootScope.currentWeek = response;
+        DataService.sendMail(function () {
             $rootScope.message = "Emails sent.";
             $timeout(function () {
                 $rootScope.message = false;

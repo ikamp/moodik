@@ -20,7 +20,7 @@ class WeeklyMail extends Mailable
      *
      * @return void
      */
-    public function __construct(Employee $employee,  $currentWeek)
+    public function __construct(Employee $employee, $currentWeek)
     {
         $this->employee = $employee;
         $this->currentWeek = $currentWeek;
